@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sujata Karan — Full Résumé</title>
+<meta name="description" content="Full résumé for Sujata Karan — analytics, data and AI strategy leader with 14+ years across Tata Consultancy Services, Colgate-Palmolive and Wärtsilä.">
+<meta property="og:title" content="Sujata Karan — Full Résumé">
+<meta property="og:description" content="Full résumé — analytics, data and AI strategy leader with 14+ years across Tata Consultancy Services, Colgate-Palmolive and Wärtsilä.">
+<meta property="og:type" content="profile">
+<meta property="og:url" content="https://sujatakaran.com/resume.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Sujata Karan — Full Résumé">
+<meta name="twitter:description" content="Full résumé — analytics, data and AI strategy leader with 14+ years across Tata Consultancy Services, Colgate-Palmolive and Wärtsilä.">
+<link rel="canonical" href="https://sujatakaran.com/resume.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink-navy: #0f2438;
+    --navy-deep: #0a1a29;
+    --chart-cream: #ece5d3;
+    --cream-panel: #f4efe2;
+    --brass: #a8752f;
+    --brass-bright: #c68f42;
+    --teal-deep: #1c4a4d;
+    --ink-text: #1b2430;
+    --cream-text: #f1ead9;
+    --muted-navy-text: #9db0c2;
+    --muted-ink-text: #5a6472;
+    --rule: rgba(168, 117, 47, 0.35);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--chart-cream);
+    background-image:
+      repeating-linear-gradient(0deg, rgba(28,74,77,0.05) 0px, rgba(28,74,77,0.05) 1px, transparent 1px, transparent 64px),
+      repeating-linear-gradient(90deg, rgba(28,74,77,0.05) 0px, rgba(28,74,77,0.05) 1px, transparent 1px, transparent 64px);
+    color: var(--ink-text);
+    font-family: 'Public Sans', sans-serif;
+    line-height: 1.6;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  }
+
+  .mono { font-family: 'JetBrains Mono', monospace; letter-spacing: 0.05em; }
+
+  h1, h2, h3 { font-family: 'Fraunces', serif; font-weight: 500; letter-spacing: -0.01em; }
+
+  a { color: inherit; }
+
+  .wrap { max-width: 860px; margin: 0 auto; padding: 0 32px 100px; }
+
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    padding: 20px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(15, 36, 56, 0.92);
+    backdrop-filter: blur(6px);
+  }
+
+  .brand { font-family: 'Fraunces', serif; font-size: 1.05rem; color: var(--cream-text); }
+
+  header nav a {
+    text-decoration: none;
+    color: var(--muted-navy-text);
+    font-size: 0.85rem;
+    margin-left: 24px;
+    transition: color 0.2s;
+  }
+
+  header nav a:hover { color: var(--brass-bright); }
+
+  header a.back { color: var(--brass-bright); }
+
+  .print-btn {
+    display: none;
+  }
+
+  .hero-block {
+    padding: 64px 0 32px;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 40px;
+  }
+
+  .coord {
+    font-size: 0.72rem;
+    color: var(--brass);
+    margin-bottom: 18px;
+  }
+
+  h1.name {
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+    color: var(--ink-text);
+  }
+
+  .role-line {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--teal-deep);
+    margin-top: 8px;
+  }
+
+  .contact-line {
+    margin-top: 18px;
+    font-size: 0.85rem;
+    color: var(--muted-ink-text);
+  }
+
+  .contact-line a { color: var(--teal-deep); text-decoration: underline; }
+
+  .summary {
+    margin-top: 28px;
+    font-size: 1rem;
+    max-width: 680px;
+    color: var(--ink-text);
+    text-align: justify;
+    text-justify: inter-word;
+  }
+
+  section.block { margin-bottom: 56px; }
+
+  .eyebrow {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    color: var(--brass);
+    margin-bottom: 16px;
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+  }
+
+  .skill-cat {
+    background: var(--cream-panel);
+    padding: 20px 22px;
+  }
+
+  .skill-cat .cat-name {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    color: var(--brass);
+    margin-bottom: 10px;
+  }
+
+  .skill-cat ul {
+    list-style: none;
+  }
+
+  .skill-cat li {
+    font-size: 0.85rem;
+    color: var(--muted-ink-text);
+    padding: 4px 0;
+    border-top: 1px solid rgba(28,74,77,0.1);
+  }
+
+  .skill-cat li:first-child { border-top: none; }
+
+  .role-block {
+    margin-bottom: 44px;
+    padding-left: 20px;
+    border-left: 2px solid var(--rule);
+  }
+
+  .role-header {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 4px;
+  }
+
+  .role-title { font-size: 1.2rem; }
+
+  .role-tenure { font-size: 0.78rem; color: var(--brass); white-space: nowrap; }
+
+  .role-org {
+    font-size: 0.9rem;
+    color: var(--muted-ink-text);
+    margin-bottom: 16px;
+  }
+
+  .role-block ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .role-block li {
+    font-size: 0.92rem;
+    position: relative;
+    padding-left: 18px;
+    text-align: justify;
+    text-justify: inter-word;
+  }
+
+  .role-block li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--brass);
+  }
+
+  .subgroup-label {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    color: var(--teal-deep);
+    margin: 18px 0 8px;
+  }
+
+  .note-flag {
+    background: var(--cream-panel);
+    border: 1px solid var(--rule);
+    padding: 14px 18px;
+    font-size: 0.82rem;
+    color: var(--muted-ink-text);
+    margin-top: 18px;
+  }
+
+  .edu-item, .dev-item {
+    font-size: 0.92rem;
+    margin-bottom: 8px;
+  }
+
+  .edu-item .school, .dev-item .provider {
+    color: var(--muted-ink-text);
+  }
+
+  .featured-row {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .featured-item {
+    background: var(--cream-panel);
+    border: 1px solid var(--rule);
+    padding: 18px 20px;
+  }
+
+  .featured-item h3 { font-size: 1rem; margin-bottom: 6px; }
+
+  .featured-item p { font-size: 0.88rem; color: var(--muted-ink-text); }
+
+  .featured-item a {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 0.78rem;
+    color: var(--teal-deep);
+    text-decoration: underline;
+  }
+
+  footer {
+    text-align: center;
+    padding: 32px;
+    color: var(--muted-ink-text);
+    font-size: 0.78rem;
+  }
+
+  @media (max-width: 640px) {
+    .skills-grid { grid-template-columns: 1fr; }
+    .wrap { padding: 0 20px 80px; }
+  }
+
+  @media print {
+    header, .print-btn { display: none; }
+    body { background: white; }
+    .wrap { max-width: 100%; padding: 0; }
+  }
+
+  :focus-visible { outline: 2px solid var(--brass-bright); outline-offset: 3px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand mono">S. KARAN</div>
+  <nav>
+    <a href="index.html#work">Work</a>
+    <a href="index.html#contact">Contact</a>
+    <a class="back" href="index.html">&larr; Home</a>
+  </nav>
+</header>
+
+<div class="wrap">
+  <div class="hero-block">
+    <div class="coord mono">FULL RÉSUMÉ</div>
+    <h1 class="name">Sujata Karan</h1>
+    <div class="role-line">Analytics, Data &amp; AI Strategy Leader</div>
+    <div class="contact-line">Helsinki, Finland &nbsp;|&nbsp; +358 50 441 9428 &nbsp;|&nbsp; <a href="mailto:sujata@sujatakaran.com">sujata@sujatakaran.com</a> &nbsp;|&nbsp; <a href="https://www.linkedin.com/in/sujata-karan/" target="_blank" rel="noopener">LinkedIn</a></div>
+    <p class="summary">Analytics, data and AI leader with 14+ years of experience, including 6+ years building the marketing analytics and AI capability from the ground up at Wärtsilä, a global marine and energy technology business. Designed the company's marketing measurement framework and unified performance dashboards, built AI agents now used in daily workflows, and led the AI transformation roadmap and data governance operating model for a global function. Earlier career spans FMCG analytics at Colgate-Palmolive and market research at Tata Consultancy Services. Comfortable moving between hands-on technical delivery (SQL, Python, dashboarding) and executive-facing strategy, governance and stakeholder communication.</p>
+  </div>
+
+  <section class="block">
+    <div class="eyebrow mono">Core Expertise</div>
+    <div class="skills-grid">
+      <div class="skill-cat">
+        <div class="cat-name mono">Analytics &amp; Measurement</div>
+        <ul>
+          <li>Marketing measurement frameworks</li>
+          <li>KPI taxonomy design</li>
+          <li>Multi-touch attribution</li>
+          <li>Marketing mix modeling (MMM)</li>
+          <li>Predictive &amp; propensity modeling</li>
+          <li>A/B testing</li>
+          <li>Customer segmentation</li>
+          <li>Funnel analytics</li>
+        </ul>
+      </div>
+      <div class="skill-cat">
+        <div class="cat-name mono">Data &amp; Engineering</div>
+        <ul>
+          <li>SQL</li>
+          <li>Python</li>
+          <li>AWS Redshift</li>
+          <li>Data integration (ETL/API)</li>
+          <li>Data modelling</li>
+          <li>Platform evaluation (Databricks, Snowflake, Salesforce Agentforce)</li>
+        </ul>
+      </div>
+      <div class="skill-cat">
+        <div class="cat-name mono">BI &amp; Visualization</div>
+        <ul>
+          <li>Power BI</li>
+          <li>Tableau</li>
+          <li>Salesforce CRM Analytics</li>
+          <li>GA4</li>
+          <li>Looker Studio</li>
+          <li>Executive dashboarding</li>
+          <li>Self-service analytics</li>
+        </ul>
+      </div>
+      <div class="skill-cat">
+        <div class="cat-name mono">AI &amp; Automation</div>
+        <ul>
+          <li>AI strategy &amp; roadmaps</li>
+          <li>AI agent design &amp; deployment</li>
+          <li>Microsoft Copilot</li>
+          <li>LLM applications</li>
+          <li>Prompt engineering</li>
+          <li>Workflow automation (Power Automate, n8n)</li>
+          <li>Responsible AI / human-in-the-loop</li>
+        </ul>
+      </div>
+      <div class="skill-cat">
+        <div class="cat-name mono">Governance &amp; Platforms</div>
+        <ul>
+          <li>Data &amp; AI governance operating models</li>
+          <li>Data stewardship</li>
+          <li>GDPR &amp; privacy alignment</li>
+          <li>Salesforce CRM &amp; Pardot</li>
+          <li>GoToWebinar</li>
+        </ul>
+      </div>
+      <div class="skill-cat">
+        <div class="cat-name mono">Leadership &amp; Delivery</div>
+        <ul>
+          <li>Team leadership &amp; mentoring</li>
+          <li>Cross-functional &amp; cross-region leadership</li>
+          <li>Stakeholder &amp; vendor management</li>
+          <li>Budget planning</li>
+          <li>Workshop facilitation</li>
+          <li>Executive communication</li>
+          <li>Jira, Confluence, Asana</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="eyebrow mono">Professional Experience</div>
+
+    <div class="role-block">
+      <div class="role-header">
+        <div class="role-title">Digital Marketing Manager, Analytics &amp; Performance | AI Champion</div>
+        <div class="role-tenure mono">DEC 2019 – JUL 2026</div>
+      </div>
+      <div class="role-org">Wärtsilä Oyj Abp &middot; Mumbai, India (Dec 2019 – Mar 2023), Helsinki, Finland (Mar 2023 – Jul 2026)</div>
+
+      <div class="subgroup-label mono">Measurement &amp; Analytics Strategy</div>
+      <ul>
+        <li>Designed Wärtsilä's global marketing measurement framework (Gartner-adapted Return-on-Objective approach, common KPI taxonomy) and built a unified Power BI performance dashboard connecting CRM, web, paid media and marketing automation data, owned end-to-end on AWS Redshift.</li>
+        <li>Built a marketing mix model and multi-touch attribution model that lifted marketing ROI from 1.9x to 3.2x and quantified marketing's influence on roughly 3.5% of opportunity value; a companion webinar dashboard, featured in Salesforce Ben's account of Wärtsilä's 78x webinar-pipeline growth, surfaced a lead that converted into a sale worth more than €1M.</li>
+      </ul>
+
+      <div class="subgroup-label mono">AI Strategy &amp; Governance</div>
+      <ul>
+        <li>Led Wärtsilä Marketing &amp; Communications' AI transformation roadmap and AI/data governance operating model, representing the function in Wärtsilä's Project Unity enterprise data-governance programme.</li>
+        <li>Built and shipped a Social Media AI Agent reviewing roughly 70% of social content (1,174 posts in June 2026), cutting drafting time by about half — one of several candidate AI agents scored and prioritized, with two live in production workflows.</li>
+      </ul>
+
+      <div class="subgroup-label mono">Leadership &amp; Delivery</div>
+      <ul>
+        <li>Directed external delivery partners (Deloitte, Luxid, Avaus) through multiple analytics projects and consolidated vendor tools into one in-house measurement setup, cutting approximately €100K a year in recurring costs.</li>
+        <li>Mentored analysts on delivery consistency and prioritization while coordinating business, digital and corporate data teams across the function.</li>
+      </ul>
+    </div>
+
+    <div class="role-block">
+      <div class="role-header">
+        <div class="role-title">Senior Analyst</div>
+        <div class="role-tenure mono">JUL 2016 – NOV 2019</div>
+      </div>
+      <div class="role-org">Colgate Global Business Services &middot; Mumbai, India</div>
+      <ul>
+        <li>Led an analytics team delivering solutions for marketing and commercial stakeholders across Colgate's Asia and Europe divisions.</li>
+        <li>Designed a data harmonization framework that cut operational costs by 17% while improving reporting consistency.</li>
+        <li>Modernized reporting through Google Analytics and Tableau automation, saving 16 FTE hours a month.</li>
+        <li>Built scalable BI solutions using SQL, Python, Tableau and Google Analytics, enabling stakeholders to monitor performance and identify growth opportunities.</li>
+      </ul>
+    </div>
+
+    <div class="role-block">
+      <div class="role-header">
+        <div class="role-title">Senior Business Analyst</div>
+        <div class="role-tenure mono">JUN 2012 – JUN 2016</div>
+      </div>
+      <div class="role-org">Tata Consultancy Services &middot; Bangalore, India (Nielsen Insights team, Kraft Heinz account)</div>
+      <ul>
+        <li>Analyzed point-of-sale and panel data from syndicated market research databases to identify market opportunities and sales trends for global CPG clients.</li>
+        <li>Conducted customer, demographic, pricing and competitive analyses that contributed to 5.6% category growth within one year and informed successful product launches.</li>
+        <li>Delivered executive-ready insights using structured storytelling techniques, including SCQA and storyboarding.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="eyebrow mono">Speaking &amp; Recognition</div>
+    <div class="featured-row">
+      <div class="featured-item">
+        <h3>Featured in Salesforce Ben</h3>
+        <p>Built and led Wärtsilä's webinar performance dashboards, featured in "How To 25x Your Webinar Delivery," an account of how Wärtsilä scaled its webinar program and grew webinar-influenced pipeline roughly 78x year over year.</p>
+        <a href="https://www.salesforceben.com/how-to-25x-your-webinar-delivery/" target="_blank" rel="noopener">Read the article &rarr;</a>
+      </div>
+      <div class="featured-item">
+        <h3>Conference speaker, MarDreamin' 2021</h3>
+        <p>Presented "Hacking Future 101: Creative Ways to Transform Lead Generation with Machine Learning," on using ML to improve marketing efficiency and lead generation.</p>
+        <a href="https://mardreamin.com/course-video/hacking-future-101-creative-ways-to-transform-lead-generation-with-machine-learning/" target="_blank" rel="noopener">Watch the recording &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="eyebrow mono">Education</div>
+    <div class="edu-item">Master of Business Administration, Finance &amp; Marketing <span class="school">— ICFAI University, India</span></div>
+    <div class="edu-item">Bachelor of Science, Computer Science, Mathematics &amp; Statistics <span class="school">— Banasthali University, India</span></div>
+  </section>
+
+  <section class="block">
+    <div class="eyebrow mono">Professional Development</div>
+    <div class="dev-item">Nanodegree, Machine Learning <span class="provider">— Udacity</span></div>
+    <div class="dev-item">Python for Data Science and AI <span class="provider">— Coursera</span></div>
+    <div class="dev-item">n8n 101: Essentials — First Workflows</div>
+    <div class="dev-item">n8n 102: Integrations — APIs &amp; Connected Workflows</div>
+    <div class="dev-item">n8n 103: In Practice — AI, Testing &amp; Best Practices</div>
+  </section>
+</div>
+
+<footer>Sujata Karan &middot; Helsinki, Finland</footer>
+
+</body>
+</html>
