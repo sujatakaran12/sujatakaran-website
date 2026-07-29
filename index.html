@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sujata Karan — Analytics &amp; AI Strategy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink-navy: #0f2438;
+    --navy-deep: #0a1a29;
+    --chart-cream: #ece5d3;
+    --cream-panel: #f4efe2;
+    --brass: #a8752f;
+    --brass-bright: #c68f42;
+    --teal-deep: #1c4a4d;
+    --ink-text: #1b2430;
+    --cream-text: #f1ead9;
+    --muted-navy-text: #9db0c2;
+    --muted-ink-text: #5a6472;
+    --rule: rgba(168, 117, 47, 0.35);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--chart-cream);
+    color: var(--ink-text);
+    font-family: 'Public Sans', sans-serif;
+    line-height: 1.5;
+    overflow-x: hidden;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  }
+
+  .mono {
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.06em;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+
+  a { color: inherit; }
+
+  .wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* ---------- Chart texture backgrounds ---------- */
+  .chart-texture-dark {
+    background-color: var(--ink-navy);
+    background-image:
+      repeating-linear-gradient(0deg, rgba(241,234,217,0.035) 0px, rgba(241,234,217,0.035) 1px, transparent 1px, transparent 64px),
+      repeating-linear-gradient(90deg, rgba(241,234,217,0.035) 0px, rgba(241,234,217,0.035) 1px, transparent 1px, transparent 64px);
+  }
+
+  .chart-texture-light {
+    background-color: var(--chart-cream);
+    background-image:
+      repeating-linear-gradient(0deg, rgba(28,74,77,0.06) 0px, rgba(28,74,77,0.06) 1px, transparent 1px, transparent 64px),
+      repeating-linear-gradient(90deg, rgba(28,74,77,0.06) 0px, rgba(28,74,77,0.06) 1px, transparent 1px, transparent 64px);
+  }
+
+  /* ---------- Route line (signature element) ---------- */
+  .route-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+
+  .route-path {
+    fill: none;
+    stroke: var(--brass);
+    stroke-width: 1.5;
+    stroke-dasharray: 6 6;
+    opacity: 0.85;
+  }
+
+  .route-path.draw {
+    stroke-dasharray: 2000;
+    stroke-dashoffset: 2000;
+    animation: draw 2.8s ease forwards 0.3s;
+  }
+
+  @keyframes draw {
+    to { stroke-dashoffset: 0; }
+  }
+
+  .waypoint-dot {
+    fill: var(--brass-bright);
+  }
+
+  /* ---------- Header ---------- */
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 20px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(15, 36, 56, 0.88);
+    backdrop-filter: blur(6px);
+  }
+
+  .brand {
+    font-family: 'Fraunces', serif;
+    font-size: 1.05rem;
+    color: var(--cream-text);
+    letter-spacing: 0.02em;
+  }
+
+  nav a {
+    text-decoration: none;
+    color: var(--muted-navy-text);
+    font-size: 0.85rem;
+    margin-left: 28px;
+    font-family: 'Public Sans', sans-serif;
+    transition: color 0.2s;
+  }
+
+  nav a:hover { color: var(--brass-bright); }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: var(--cream-text);
+    padding-top: 90px;
+    padding-bottom: 60px;
+    overflow: hidden;
+  }
+
+  .coordinates {
+    font-size: 0.75rem;
+    color: var(--brass-bright);
+    text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+
+  .hero h1 {
+    font-size: clamp(3rem, 8vw, 5.5rem);
+    line-height: 1.02;
+    color: var(--cream-text);
+  }
+
+  .hero .role {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+    color: var(--brass-bright);
+    margin-top: 14px;
+  }
+
+  .hero p.sub {
+    max-width: 540px;
+    margin-top: 26px;
+    color: var(--muted-navy-text);
+    font-size: 1.05rem;
+  }
+
+  .cta-row {
+    margin-top: 44px;
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 14px 28px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-family: 'Public Sans', sans-serif;
+    font-weight: 600;
+    border-radius: 2px;
+    transition: transform 0.2s, background 0.2s;
+  }
+
+  .btn-primary {
+    background: var(--brass);
+    color: var(--navy-deep);
+  }
+
+  .btn-primary:hover { background: var(--brass-bright); transform: translateY(-1px); }
+
+  .btn-ghost {
+    border: 1px solid var(--rule);
+    color: var(--cream-text);
+  }
+
+  .btn-ghost:hover { border-color: var(--brass-bright); transform: translateY(-1px); }
+
+  .depth-mark {
+    position: absolute;
+    right: 48px;
+    bottom: 48px;
+    text-align: right;
+    color: var(--muted-navy-text);
+    font-size: 0.75rem;
+  }
+
+  .depth-mark .num {
+    font-family: 'Fraunces', serif;
+    font-size: 2.6rem;
+    color: var(--brass-bright);
+    display: block;
+    line-height: 1;
+  }
+
+  /* ---------- Section shell ---------- */
+  section { position: relative; padding: 120px 0; }
+
+  .eyebrow {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: var(--brass);
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-size: clamp(1.9rem, 4vw, 2.6rem);
+    max-width: 620px;
+    margin-bottom: 20px;
+  }
+
+  .section-lede {
+    max-width: 560px;
+    color: var(--muted-ink-text);
+    font-size: 1.05rem;
+    margin-bottom: 72px;
+  }
+
+  /* ---------- Journey (route) section ---------- */
+  .journey { color: var(--ink-text); }
+
+  .route-track {
+    position: relative;
+    padding: 40px 0 20px;
+  }
+
+  .journey-layout {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  .portrait-frame {
+    position: relative;
+  }
+
+  .portrait-frame img {
+    width: 100%;
+    display: block;
+    filter: grayscale(0.15) contrast(1.03);
+    border: 1px solid var(--rule);
+  }
+
+  .portrait-caption {
+    margin-top: 14px;
+    font-size: 0.72rem;
+    color: var(--brass);
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .waypoints {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .waypoint {
+    background: var(--cream-panel);
+    border: 1px solid var(--rule);
+    padding: 32px;
+  }
+
+  .waypoint .port-coord {
+    font-size: 0.7rem;
+    color: var(--brass);
+    margin-bottom: 10px;
+  }
+
+  .waypoint h3 {
+    font-size: 1.5rem;
+    margin-bottom: 6px;
+  }
+
+  .waypoint .tenure {
+    font-size: 0.8rem;
+    color: var(--muted-ink-text);
+    margin-bottom: 16px;
+  }
+
+  .waypoint p {
+    color: var(--muted-ink-text);
+    font-size: 0.95rem;
+  }
+
+  /* ---------- Case studies (log entries) ---------- */
+  .logbook { color: var(--cream-text); }
+
+  .log-entries {
+    display: grid;
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+  }
+
+  .log-entry {
+    background: var(--ink-navy);
+    padding: 40px 44px;
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 32px;
+    align-items: start;
+  }
+
+  .log-entry .entry-no {
+    font-size: 0.75rem;
+    color: var(--brass-bright);
+  }
+
+  .log-entry h3 {
+    font-size: 1.4rem;
+    color: var(--cream-text);
+    margin-bottom: 10px;
+  }
+
+  .log-entry .tags {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 14px 0 4px;
+  }
+
+  .tag {
+    font-size: 0.7rem;
+    color: var(--muted-navy-text);
+    border: 1px solid var(--rule);
+    padding: 4px 10px;
+    text-transform: uppercase;
+  }
+
+  .log-entry p {
+    color: var(--muted-navy-text);
+    font-size: 0.95rem;
+  }
+
+  .placeholder-note {
+    color: var(--brass-bright);
+    font-size: 0.78rem;
+    font-style: italic;
+    margin-top: 12px;
+  }
+
+  /* ---------- Instruments (skills) ---------- */
+  .instruments { color: var(--ink-text); }
+
+  .instrument-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+  }
+
+  .instrument {
+    background: var(--cream-panel);
+    padding: 32px 28px;
+  }
+
+  .instrument .cat {
+    font-size: 0.72rem;
+    color: var(--brass);
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+
+  .instrument ul {
+    list-style: none;
+  }
+
+  .instrument li {
+    font-size: 0.95rem;
+    padding: 6px 0;
+    border-top: 1px solid rgba(28,74,77,0.12);
+  }
+
+  .instrument li:first-child { border-top: none; }
+
+  /* ---------- Contact ---------- */
+  .contact {
+    color: var(--cream-text);
+    text-align: center;
+    padding-bottom: 90px;
+  }
+
+  .contact h2 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 24px;
+  }
+
+  .contact p {
+    color: var(--muted-navy-text);
+    max-width: 480px;
+    margin: 0 auto 40px;
+  }
+
+  .contact .cta-row { justify-content: center; }
+
+  footer {
+    text-align: center;
+    padding: 32px;
+    color: var(--muted-navy-text);
+    font-size: 0.78rem;
+    border-top: 1px solid var(--rule);
+  }
+
+  /* ---------- Reveal on scroll ---------- */
+  .reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 720px) {
+    .journey-layout { grid-template-columns: 1fr; }
+    .portrait-frame { max-width: 260px; }
+    .waypoints { grid-template-columns: 1fr; }
+    .instrument-grid { grid-template-columns: 1fr; }
+    .log-entry { grid-template-columns: 1fr; gap: 12px; }
+    .depth-mark { position: static; margin-top: 60px; text-align: left; }
+    nav a { margin-left: 16px; }
+    .wrap { padding: 0 20px; }
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--brass-bright);
+    outline-offset: 3px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand mono">S. KARAN</div>
+  <nav>
+    <a href="#journey">Journey</a>
+    <a href="#work">Work</a>
+    <a href="#instruments">Skills</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero chart-texture-dark">
+  <svg class="route-svg" viewBox="0 0 1080 800" preserveAspectRatio="none" aria-hidden="true">
+    <path class="route-path draw" d="M -20,620 C 200,560 340,520 480,540 C 620,560 700,460 880,380 C 980,340 1020,300 1100,260" />
+    <circle class="waypoint-dot" cx="480" cy="540" r="4"></circle>
+    <circle class="waypoint-dot" cx="880" cy="380" r="4"></circle>
+  </svg>
+
+  <div class="wrap" style="position: relative; z-index: 2;">
+    <div class="coordinates mono">60.17°N, 24.94°E — HELSINKI, FINLAND</div>
+    <h1>Sujata Karan</h1>
+    <div class="role">Analytics &amp; AI Strategy Leader</div>
+    <p class="sub">Fourteen-plus years turning marketing, operations and industrial data into decisions that hold up under scrutiny. From consumer goods to marine technology.</p>
+    <div class="cta-row">
+      <a href="#work" class="btn btn-primary">View case studies</a>
+      <a href="#" class="btn btn-ghost">Download CV</a>
+    </div>
+  </div>
+
+  <div class="depth-mark mono">
+    <span class="num">14+</span>
+    YEARS CHARTED
+  </div>
+</section>
+
+<section class="journey chart-texture-light" id="journey">
+  <div class="wrap">
+    <div class="journey-layout">
+      <div class="portrait-frame reveal">
+        <img src="assets/sujata-portrait.png" alt="Portrait of Sujata Karan">
+        <div class="portrait-caption mono">
+          <span>S. KARAN</span>
+          <span>HELSINKI</span>
+        </div>
+      </div>
+      <div>
+        <div class="eyebrow mono reveal">The route so far</div>
+        <h2 class="section-title reveal">Two industries, one throughline: data that earns trust before it earns action.</h2>
+        <p class="section-lede reveal" style="margin-bottom: 48px;">A career built across consumer goods and industrial marine technology, carrying the same discipline in both directions: measurement, governance and clarity, wherever the data originates.</p>
+      </div>
+    </div>
+
+    <div class="route-track">
+      <div class="waypoints">
+        <div class="waypoint reveal">
+          <div class="port-coord mono">WAYPOINT 01</div>
+          <h3>Colgate-Palmolive</h3>
+          <div class="tenure mono">FMCG, GLOBAL</div>
+          <p>Foundations in marketing and brand analytics within a fast-moving global consumer goods environment, where speed and rigor had to coexist.</p>
+        </div>
+        <div class="waypoint reveal">
+          <div class="port-coord mono">WAYPOINT 02</div>
+          <h3>Wärtsilä</h3>
+          <div class="tenure mono">MARINE &amp; INDUSTRIAL TECH, 2019 – 2026</div>
+          <p>Digital Marketing Manager, Analytics, then Analytics &amp; Performance Manager. Led marketing measurement, data governance and AI transformation strategy across a global industrial and marine technology business.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="logbook chart-texture-dark" id="work">
+  <div class="wrap">
+    <div class="eyebrow mono reveal">Selected work</div>
+    <h2 class="section-title reveal" style="color: var(--cream-text);">From the logbook</h2>
+    <p class="section-lede reveal" style="color: var(--muted-navy-text);">Three entries worth a closer look. Replace these with your own project specifics, outcomes and metrics before publishing.</p>
+
+    <div class="log-entries">
+      <div class="log-entry reveal">
+        <div class="entry-no mono">ENTRY 01</div>
+        <div>
+          <h3>Marketing measurement framework</h3>
+          <p>[Describe the business problem, your approach, and the measurable outcome. What changed because this existed.]</p>
+          <div class="tags">
+            <span class="tag mono">GA4</span>
+            <span class="tag mono">Power BI</span>
+            <span class="tag mono">SQL</span>
+          </div>
+        </div>
+      </div>
+      <div class="log-entry reveal">
+        <div class="entry-no mono">ENTRY 02</div>
+        <div>
+          <h3>AI &amp; data governance rollout</h3>
+          <p>[Describe the governance challenge across the organization, what framework or process you introduced, and the adoption result.]</p>
+          <div class="tags">
+            <span class="tag mono">AI Governance</span>
+            <span class="tag mono">Data Strategy</span>
+          </div>
+        </div>
+      </div>
+      <div class="log-entry reveal">
+        <div class="entry-no mono">ENTRY 03</div>
+        <div>
+          <h3>Predictive analytics model</h3>
+          <p>[Describe what you predicted, the method, and the decision it informed downstream.]</p>
+          <div class="tags">
+            <span class="tag mono">Python</span>
+            <span class="tag mono">AWS Redshift</span>
+            <span class="tag mono">Predictive Analytics</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="placeholder-note reveal">Bracketed text above is a placeholder. Swap in your real project details before this goes live.</p>
+  </div>
+</section>
+
+<section class="instruments chart-texture-light" id="instruments">
+  <div class="wrap">
+    <div class="eyebrow mono reveal">Instruments</div>
+    <h2 class="section-title reveal">The tools that stay steady across industries.</h2>
+    <p class="section-lede reveal">Grouped by what they're for, not just what they're called.</p>
+
+    <div class="instrument-grid">
+      <div class="instrument reveal">
+        <div class="cat mono">Analysis &amp; Engineering</div>
+        <ul>
+          <li>SQL</li>
+          <li>Python</li>
+          <li>AWS Redshift</li>
+        </ul>
+      </div>
+      <div class="instrument reveal">
+        <div class="cat mono">Visualization &amp; BI</div>
+        <ul>
+          <li>Power BI</li>
+          <li>Tableau</li>
+          <li>Salesforce CRM Analytics</li>
+          <li>GA4</li>
+        </ul>
+      </div>
+      <div class="instrument reveal">
+        <div class="cat mono">AI &amp; Governance</div>
+        <ul>
+          <li>Predictive Analytics</li>
+          <li>AI Agent Development</li>
+          <li>AI &amp; Data Governance</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact chart-texture-dark" id="contact">
+  <div class="wrap">
+    <div class="eyebrow mono reveal" style="text-align:center;">Get in touch</div>
+    <h2 class="reveal">Charting the next role.</h2>
+    <p class="reveal">Open to Lead, Senior Analyst and AI Enablement roles where data has to earn its keep.</p>
+    <div class="cta-row reveal">
+      <a href="mailto:hello@sujatakaran.com" class="btn btn-primary">Email me</a>
+      <a href="#" class="btn btn-ghost">LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Sujata Karan · Helsinki, Finland · &copy; 2026
+</footer>
+
+<script>
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
