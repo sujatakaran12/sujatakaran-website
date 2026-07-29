@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sujata Karan — Full Résumé</title>
-<meta name="description" content="Full résumé for Sujata Karan — analytics, data and AI strategy leader with 14+ years across Tata Consultancy Services, Colgate-Palmolive and Wärtsilä.">
-<meta property="og:title" content="Sujata Karan — Full Résumé">
-<meta property="og:description" content="Full résumé — analytics, data and AI strategy leader with 14+ years across Tata Consultancy Services, Colgate-Palmolive and Wärtsilä.">
+<title>Sujata Karan · Full Résumé</title>
+<meta name="description" content="Full résumé for Sujata Karan, analytics, data and AI strategy leader with 14+ years across Tata Consultancy Services, Colgate-Palmolive and Wärtsilä.">
+<meta property="og:title" content="Sujata Karan · Full Résumé">
+<meta property="og:description" content="Full résumé for an analytics, data and AI strategy leader with 14+ years across Tata Consultancy Services, Colgate-Palmolive and Wärtsilä.">
 <meta property="og:type" content="profile">
 <meta property="og:url" content="https://sujatakaran.com/resume.html">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Sujata Karan — Full Résumé">
-<meta name="twitter:description" content="Full résumé — analytics, data and AI strategy leader with 14+ years across Tata Consultancy Services, Colgate-Palmolive and Wärtsilä.">
+<meta name="twitter:title" content="Sujata Karan · Full Résumé">
+<meta name="twitter:description" content="Full résumé for an analytics, data and AI strategy leader with 14+ years across Tata Consultancy Services, Colgate-Palmolive and Wärtsilä.">
 <link rel="canonical" href="https://sujatakaran.com/resume.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -124,6 +124,35 @@
     text-justify: inter-word;
   }
 
+  .impact-list {
+    display: grid;
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    margin-top: 32px;
+  }
+
+  .impact-item {
+    background: var(--cream-panel);
+    padding: 16px 22px;
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .impact-metric {
+    font-family: 'Fraunces', serif;
+    font-size: 1.5rem;
+    color: var(--brass);
+    line-height: 1;
+  }
+
+  .impact-item p {
+    font-size: 0.88rem;
+    color: var(--muted-ink-text);
+  }
+
   section.block { margin-bottom: 56px; }
 
   .eyebrow {
@@ -166,6 +195,13 @@
 
   .skill-cat li:first-child { border-top: none; }
 
+  .skill-cat .tools-line {
+    margin-top: 12px;
+    font-size: 0.72rem;
+    color: var(--brass);
+    font-family: 'JetBrains Mono', monospace;
+  }
+
   .role-block {
     margin-bottom: 44px;
     padding-left: 20px;
@@ -206,7 +242,7 @@
   }
 
   .role-block li::before {
-    content: "—";
+    content: "-";
     position: absolute;
     left: 0;
     color: var(--brass);
@@ -268,6 +304,21 @@
     font-size: 0.78rem;
   }
 
+  .exec-profile {
+    border: 1px solid var(--rule);
+    background: var(--cream-panel);
+    padding: 32px 36px;
+    margin-bottom: 56px;
+  }
+
+  .exec-profile p {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--ink-text);
+    line-height: 1.5;
+  }
+
   @media (max-width: 640px) {
     .skills-grid { grid-template-columns: 1fr; }
     .wrap { padding: 0 20px 80px; }
@@ -299,81 +350,95 @@
     <h1 class="name">Sujata Karan</h1>
     <div class="role-line">Analytics, Data &amp; AI Strategy Leader</div>
     <div class="contact-line">Helsinki, Finland &nbsp;|&nbsp; +358 50 441 9428 &nbsp;|&nbsp; <a href="mailto:sujata@sujatakaran.com">sujata@sujatakaran.com</a> &nbsp;|&nbsp; <a href="https://www.linkedin.com/in/sujata-karan/" target="_blank" rel="noopener">LinkedIn</a></div>
-    <p class="summary">Analytics, data and AI leader with 14+ years of experience, including 6+ years building the marketing analytics and AI capability from the ground up at Wärtsilä, a global marine and energy technology business. Designed the company's marketing measurement framework and unified performance dashboards, built AI agents now used in daily workflows, and led the AI transformation roadmap and data governance operating model for a global function. Earlier career spans FMCG analytics at Colgate-Palmolive and market research at Tata Consultancy Services. Comfortable moving between hands-on technical delivery (SQL, Python, dashboarding) and executive-facing strategy, governance and stakeholder communication.</p>
+    <p class="summary">Analytics and AI executive who built a €1B+ business's marketing analytics function from the ground up. Delivered an AI transformation roadmap now running production agents, a measurement framework that lifted marketing ROI from 1.9x to 3.2x, and an in-house analytics capability saving approximately €100K annually. Recognized externally for driving 78x webinar-pipeline growth and a single opportunity worth more than €1M.</p>
+
+    <div class="eyebrow mono" style="margin-top: 40px;">Selected Impact</div>
+    <div class="impact-list">
+      <div class="impact-item">
+        <div class="impact-metric mono">€1B+</div>
+        <p>Owned the marketing data, analytics and AI capability for a €1B+ global marine and energy technology business.</p>
+      </div>
+      <div class="impact-item">
+        <div class="impact-metric mono">2 live</div>
+        <p>AI agents in production from a scored portfolio of candidates, including a Social Media Agent cutting drafting time by half.</p>
+      </div>
+      <div class="impact-item">
+        <div class="impact-metric mono">€100K</div>
+        <p>Saved annually by insourcing dashboard development and consolidating vendor tooling into one measurement setup.</p>
+      </div>
+      <div class="impact-item">
+        <div class="impact-metric mono">€1M+</div>
+        <p>Single opportunity influenced by a live webinar Q&amp;A insight, surfaced through a dashboard built end to end.</p>
+      </div>
+      <div class="impact-item">
+        <div class="impact-metric mono">78x</div>
+        <p>Webinar-influenced pipeline growth, featured externally in Salesforce Ben's account of the program.</p>
+      </div>
+    </div>
   </div>
 
   <section class="block">
     <div class="eyebrow mono">Core Expertise</div>
     <div class="skills-grid">
       <div class="skill-cat">
-        <div class="cat-name mono">Analytics &amp; Measurement</div>
+        <div class="cat-name mono">Analytics Strategy</div>
         <ul>
           <li>Marketing measurement frameworks</li>
           <li>KPI taxonomy design</li>
-          <li>Multi-touch attribution</li>
-          <li>Marketing mix modeling (MMM)</li>
-          <li>Predictive &amp; propensity modeling</li>
-          <li>A/B testing</li>
-          <li>Customer segmentation</li>
-          <li>Funnel analytics</li>
+          <li>ROI &amp; attribution modeling</li>
+          <li>Marketing mix modeling</li>
         </ul>
-      </div>
-      <div class="skill-cat">
-        <div class="cat-name mono">Data &amp; Engineering</div>
-        <ul>
-          <li>SQL</li>
-          <li>Python</li>
-          <li>AWS Redshift</li>
-          <li>Data integration (ETL/API)</li>
-          <li>Data modelling</li>
-          <li>Platform evaluation (Databricks, Snowflake, Salesforce Agentforce)</li>
-        </ul>
-      </div>
-      <div class="skill-cat">
-        <div class="cat-name mono">BI &amp; Visualization</div>
-        <ul>
-          <li>Power BI</li>
-          <li>Tableau</li>
-          <li>Salesforce CRM Analytics</li>
-          <li>GA4</li>
-          <li>Looker Studio</li>
-          <li>Executive dashboarding</li>
-          <li>Self-service analytics</li>
-        </ul>
+        <div class="tools-line">Tools: Power BI, GA4</div>
       </div>
       <div class="skill-cat">
         <div class="cat-name mono">AI &amp; Automation</div>
         <ul>
           <li>AI strategy &amp; roadmaps</li>
           <li>AI agent design &amp; deployment</li>
-          <li>Microsoft Copilot</li>
-          <li>LLM applications</li>
-          <li>Prompt engineering</li>
-          <li>Workflow automation (Power Automate, n8n)</li>
-          <li>Responsible AI / human-in-the-loop</li>
+          <li>Responsible AI / governance</li>
+          <li>Workflow automation</li>
         </ul>
+        <div class="tools-line">Tools: Microsoft Copilot, n8n</div>
       </div>
       <div class="skill-cat">
-        <div class="cat-name mono">Governance &amp; Platforms</div>
+        <div class="cat-name mono">Measurement &amp; Experimentation</div>
         <ul>
-          <li>Data &amp; AI governance operating models</li>
-          <li>Data stewardship</li>
-          <li>GDPR &amp; privacy alignment</li>
-          <li>Salesforce CRM &amp; Pardot</li>
-          <li>GoToWebinar</li>
+          <li>Multi-touch attribution</li>
+          <li>A/B testing</li>
+          <li>Predictive &amp; propensity modeling</li>
+          <li>Customer segmentation</li>
         </ul>
+        <div class="tools-line">Tools: SQL, Python</div>
       </div>
       <div class="skill-cat">
-        <div class="cat-name mono">Leadership &amp; Delivery</div>
+        <div class="cat-name mono">Data Engineering</div>
+        <ul>
+          <li>Data integration (ETL/API)</li>
+          <li>Cloud data platforms</li>
+          <li>Data modelling</li>
+          <li>Platform evaluation (Databricks, Snowflake, Salesforce Agentforce)</li>
+        </ul>
+        <div class="tools-line">Tools: AWS Redshift, SQL, Python</div>
+      </div>
+      <div class="skill-cat">
+        <div class="cat-name mono">Executive Leadership</div>
         <ul>
           <li>Team leadership &amp; mentoring</li>
-          <li>Cross-functional &amp; cross-region leadership</li>
           <li>Stakeholder &amp; vendor management</li>
           <li>Budget planning</li>
-          <li>Workshop facilitation</li>
-          <li>Executive communication</li>
-          <li>Jira, Confluence, Asana</li>
+          <li>Cross-functional &amp; cross-region leadership</li>
         </ul>
+        <div class="tools-line">Tools: Jira, Confluence, Asana</div>
+      </div>
+      <div class="skill-cat">
+        <div class="cat-name mono">BI &amp; Visualization</div>
+        <ul>
+          <li>Executive dashboarding</li>
+          <li>Self-service analytics</li>
+          <li>Data storytelling</li>
+          <li>Data &amp; AI governance, stewardship</li>
+        </ul>
+        <div class="tools-line">Tools: Power BI, Tableau, Salesforce CRM Analytics</div>
       </div>
     </div>
   </section>
@@ -383,27 +448,28 @@
 
     <div class="role-block">
       <div class="role-header">
-        <div class="role-title">Digital Marketing Manager, Analytics &amp; Performance | AI Champion</div>
+        <div class="role-title">Analytics &amp; Performance Manager | AI Strategy Lead</div>
         <div class="role-tenure mono">DEC 2019 – JUL 2026</div>
       </div>
       <div class="role-org">Wärtsilä Oyj Abp &middot; Mumbai, India (Dec 2019 – Mar 2023), Helsinki, Finland (Mar 2023 – Jul 2026)</div>
-
-      <div class="subgroup-label mono">Measurement &amp; Analytics Strategy</div>
-      <ul>
-        <li>Designed Wärtsilä's global marketing measurement framework (Gartner-adapted Return-on-Objective approach, common KPI taxonomy) and built a unified Power BI performance dashboard connecting CRM, web, paid media and marketing automation data, owned end-to-end on AWS Redshift.</li>
-        <li>Built a marketing mix model and multi-touch attribution model that lifted marketing ROI from 1.9x to 3.2x and quantified marketing's influence on roughly 3.5% of opportunity value; a companion webinar dashboard, featured in Salesforce Ben's account of Wärtsilä's 78x webinar-pipeline growth, surfaced a lead that converted into a sale worth more than €1M.</li>
-      </ul>
+      <div class="role-org" style="margin-top: -12px; font-size: 0.8rem;">Official title: Digital Marketing Manager, Analytics &amp; Performance | AI Champion</div>
 
       <div class="subgroup-label mono">AI Strategy &amp; Governance</div>
       <ul>
-        <li>Led Wärtsilä Marketing &amp; Communications' AI transformation roadmap and AI/data governance operating model, representing the function in Wärtsilä's Project Unity enterprise data-governance programme.</li>
-        <li>Built and shipped a Social Media AI Agent reviewing roughly 70% of social content (1,174 posts in June 2026), cutting drafting time by about half — one of several candidate AI agents scored and prioritized, with two live in production workflows.</li>
+        <li>Facing scattered, ungoverned AI adoption across Marketing &amp; Communications, built and led the function's AI transformation roadmap and governance operating model, taking AI from ad hoc tool use to production agents running daily, while representing the function in Wärtsilä's enterprise-wide Project Unity data-governance programme.</li>
+        <li>Scored a portfolio of candidate AI agents against value and feasibility, shipping a Social Media AI Agent that now reviews roughly 70% of social content and cuts drafting time by about half, with two agents live in production workflows.</li>
+      </ul>
+
+      <div class="subgroup-label mono">Measurement &amp; Analytics Strategy</div>
+      <ul>
+        <li>With marketing performance reported inconsistently across business units, designed Wärtsilä's global marketing measurement framework (Gartner-adapted Return-on-Objective approach) and a unified Power BI performance dashboard, owned end-to-end on AWS Redshift, giving every business unit one shared source of truth.</li>
+        <li>Built a marketing mix and multi-touch attribution model that lifted marketing ROI from 1.9x to 3.2x and quantified marketing's influence on roughly 3.5% of opportunity value; a companion webinar dashboard, featured in Salesforce Ben's account of Wärtsilä's 78x webinar-pipeline growth, surfaced a lead that converted into a sale worth more than €1M.</li>
       </ul>
 
       <div class="subgroup-label mono">Leadership &amp; Delivery</div>
       <ul>
-        <li>Directed external delivery partners (Deloitte, Luxid, Avaus) through multiple analytics projects and consolidated vendor tools into one in-house measurement setup, cutting approximately €100K a year in recurring costs.</li>
-        <li>Mentored analysts on delivery consistency and prioritization while coordinating business, digital and corporate data teams across the function.</li>
+        <li>Facing rising vendor costs for dashboard development, directed external delivery partners (Deloitte, Luxid, Avaus) and consolidated tooling into one in-house measurement setup, cutting approximately €100K a year in recurring costs.</li>
+        <li>Mentored analysts on delivery consistency and prioritization while coordinating business, digital and corporate data teams across a global function.</li>
       </ul>
     </div>
 
@@ -439,13 +505,17 @@
     <div class="eyebrow mono">Speaking &amp; Recognition</div>
     <div class="featured-row">
       <div class="featured-item">
+        <h3>Selected as AI Champion, Wärtsilä Marketing &amp; Communications</h3>
+        <p>Chosen to represent the function in Wärtsilä's enterprise-wide Project Unity data-governance programme and to set the function's AI strategy, translating a company-wide AI mandate into a working roadmap, governance model and production agent portfolio.</p>
+      </div>
+      <div class="featured-item">
         <h3>Featured in Salesforce Ben</h3>
         <p>Built and led Wärtsilä's webinar performance dashboards, featured in "How To 25x Your Webinar Delivery," an account of how Wärtsilä scaled its webinar program and grew webinar-influenced pipeline roughly 78x year over year.</p>
         <a href="https://www.salesforceben.com/how-to-25x-your-webinar-delivery/" target="_blank" rel="noopener">Read the article &rarr;</a>
       </div>
       <div class="featured-item">
         <h3>Conference speaker, MarDreamin' 2021</h3>
-        <p>Presented "Hacking Future 101: Creative Ways to Transform Lead Generation with Machine Learning," on using ML to improve marketing efficiency and lead generation.</p>
+        <p>Co-presented "Hacking Future 101: Creative Ways to Transform Lead Generation with Machine Learning" with Alexandra Novikova, on using ML to improve marketing efficiency and lead generation.</p>
         <a href="https://mardreamin.com/course-video/hacking-future-101-creative-ways-to-transform-lead-generation-with-machine-learning/" target="_blank" rel="noopener">Watch the recording &rarr;</a>
       </div>
     </div>
@@ -453,17 +523,21 @@
 
   <section class="block">
     <div class="eyebrow mono">Education</div>
-    <div class="edu-item">Master of Business Administration, Finance &amp; Marketing <span class="school">— ICFAI University, India</span></div>
-    <div class="edu-item">Bachelor of Science, Computer Science, Mathematics &amp; Statistics <span class="school">— Banasthali University, India</span></div>
+    <div class="edu-item">Master of Business Administration, Finance &amp; Marketing <span class="school">, ICFAI University, India</span></div>
+    <div class="edu-item">Bachelor of Science, Computer Science, Mathematics &amp; Statistics <span class="school">, Banasthali University, India</span></div>
   </section>
 
   <section class="block">
     <div class="eyebrow mono">Professional Development</div>
-    <div class="dev-item">Nanodegree, Machine Learning <span class="provider">— Udacity</span></div>
-    <div class="dev-item">Python for Data Science and AI <span class="provider">— Coursera</span></div>
-    <div class="dev-item">n8n 101: Essentials — First Workflows</div>
-    <div class="dev-item">n8n 102: Integrations — APIs &amp; Connected Workflows</div>
-    <div class="dev-item">n8n 103: In Practice — AI, Testing &amp; Best Practices</div>
+    <div class="dev-item">Nanodegree, Machine Learning <span class="provider">, Udacity</span></div>
+    <div class="dev-item">Python for Data Science and AI <span class="provider">, Coursera</span></div>
+    <div class="dev-item">n8n 101: Essentials, First Workflows</div>
+    <div class="dev-item">n8n 102: Integrations, APIs &amp; Connected Workflows</div>
+    <div class="dev-item">n8n 103: In Practice, AI, Testing &amp; Best Practices</div>
+  </section>
+  <section class="block exec-profile">
+    <div class="eyebrow mono">Executive Profile</div>
+    <p>I build analytics and AI capability from zero to production, and stay hands-on enough to defend every number in the room. For an organization trying to make AI and data strategy real rather than aspirational, that combination is the point.</p>
   </section>
 </div>
 
