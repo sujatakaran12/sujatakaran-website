@@ -1,36 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google Consent Mode defaults: must be first -->
+  <script data-cookieconsent="ignore">
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag("consent", "default", {
+      ad_storage: "denied",
+      ad_user_data: "denied",
+      ad_personalization: "denied",
+      analytics_storage: "denied",
+      functionality_storage: "denied",
+      personalization_storage: "denied",
+      security_storage: "granted",
+      wait_for_update: 500
+    });
+  </script>
+
+  <!-- Cookiebot: must load before GTM, GA4 and Clarity -->
+  <script
+    id="Cookiebot"
+    src="https://consent.cookiebot.com/uc.js"
+    data-cbid="f625a753-740b-4983-b807-e4322e7d1092"
+    data-blockingmode="auto"
+    type="text/javascript">
+  </script>
+
   <!-- Google Tag Manager -->
-  <script>
+  <script data-cookieconsent="ignore">
     (function(w,d,s,l,i){
       w[l]=w[l]||[];
-      w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
+      w[l].push({
+        "gtm.start": new Date().getTime(),
+        event: "gtm.js"
+      });
+
       var f=d.getElementsByTagName(s)[0],
           j=d.createElement(s),
-          dl=l!='dataLayer'?'&l='+l:'';
+          dl=l!="dataLayer" ? "&l="+l : "";
+
       j.async=true;
-      j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+      j.src="https://www.googletagmanager.com/gtm.js?id="+i+dl;
       f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-NR23D9J8');
+    })(window,document,"script","dataLayer","GTM-NR23D9J8");
   </script>
   <!-- End Google Tag Manager -->
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XX556KRSCQ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-XX556KRSCQ');
-</script>
-  <script type="text/javascript">
+  <!-- GA4: blocked until statistics consent -->
+  <script
+    type="text/plain"
+    data-cookieconsent="statistics"
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-XX556KRSCQ">
+  </script>
+
+  <script
+    type="text/plain"
+    data-cookieconsent="statistics">
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag("js", new Date());
+    gtag("config", "G-XX556KRSCQ");
+  </script>
+
+  <!-- Microsoft Clarity: blocked until statistics consent -->
+  <script
+    type="text/plain"
+    data-cookieconsent="statistics">
     (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "xu6j8fqku3");
-</script>
+      c[a]=c[a] || function(){
+        (c[a].q=c[a].q || []).push(arguments);
+      };
+
+      t=l.createElement(r);
+      t.async=1;
+      t.src="https://www.clarity.ms/tag/"+i;
+
+      y=l.getElementsByTagName(r)[0];
+      y.parentNode.insertBefore(t,y);
+    })(window,document,"clarity","script","xu6j8fqku3");
+  </script>
+
+  <!-- Continue with meta tags, title and CSS -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sujata Karan · Analytics, AI &amp; Marketing Measurement Strategy</title>
