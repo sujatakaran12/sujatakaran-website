@@ -679,7 +679,7 @@
 
   .lab-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
     margin-top: 16px;
   }
@@ -687,6 +687,16 @@
   .lab-card {
     border: 1px dashed var(--rule);
     padding: 26px 22px;
+  }
+
+  .lab-preview {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    object-position: top;
+    border: 1px solid var(--rule);
+    margin-bottom: 20px;
   }
 
   .lab-card h3 {
@@ -1420,13 +1430,20 @@
   <div class="wrap">
     <div class="eyebrow mono reveal">Ongoing</div>
     <h2 class="section-title reveal" style="color: var(--cream-text);">AI &amp; Automation Lab</h2>
-    <p class="section-lede reveal" style="color: var(--muted-navy-text);">Where I keep building hands-on with agents, workflows and automation, beyond what a day job asks for. Already shipped: a communication content creation agent reviewing hundreds of posts a month at Wärtsilä, and n8n certifications across essentials, integrations and AI in practice. Here's what's next.</p>
+    <p class="section-lede reveal" style="color: var(--muted-navy-text);">Where I build hands-on with agents, measurement products and workflow automation. Explore the completed portfolio builds below, alongside the tools and case studies currently in development.</p>
 
     <div class="lab-grid">
       <div class="lab-card reveal">
-        <h3>Agent Demo</h3>
-        <p>A working example of an autonomous workflow agent, walked through end to end.</p>
+        <img class="lab-preview" src="agent-workflow-preview.png" alt="Campaign QA Agent workflow showing data checks, OpenAI explanation and human review output">
+        <h3>Campaign QA Agent</h3>
+        <p>An AI-assisted n8n workflow that runs deterministic campaign data checks, explains flagged issues with an LLM, and routes findings for human review.</p>
         <a class="entry-link mono" href="agent-demo.html" style="margin-top: 12px; display: inline-block;">View the walkthrough &rarr;</a>
+      </div>
+      <div class="lab-card reveal">
+        <img class="lab-preview" src="marketing-dashboard-preview.jpg" alt="Unified marketing measurement dashboard preview">
+        <h3>Unified Marketing Measurement Dashboard</h3>
+        <p>An interactive demonstration connecting brand signals, customer journey, channel performance and commercial outcomes in one decision-ready view.</p>
+        <a class="entry-link mono" href="unifiedmarketingdashboard/" style="margin-top: 12px; display: inline-block;">Explore the dashboard &rarr;</a>
       </div>
       <div class="lab-card reveal">
         <h3>Automation Case Study</h3>
