@@ -1569,11 +1569,28 @@
     }
 
     function scrollToIndex(index, behavior) {
-      const target = cards[(index + cards.length) % cards.length];
-      // Scroll only the carousel's own horizontal scroll position.
-      // (Avoids scrollIntoView, which can also shift the page's vertical scroll.)
-      const offset = target.offsetLeft - (carousel.clientWidth - target.clientWidth) / 2;
-      carousel.scrollTo({ left: offset, behavior: behavior || 'smooth' });
+      if (!cards.length) return;
+
+      const normalizedIndex = (index + cards.length) % cards.length;
+      const target = cards[normalizedIndex];
+
+      // Calculate the target position relative to the carousel's CURRENT
+      // scroll position. This is more reliable than offsetLeft when the
+      // carousel uses large negative margins and viewport-sized padding.
+      const carouselRect = carousel.getBoundingClientRect();
+      const targetRect = target.getBoundingClientRect();
+      const targetLeft =
+        carousel.scrollLeft +
+        (targetRect.left - carouselRect.left) -
+        (carousel.clientWidth - targetRect.width) / 2;
+
+      carousel.scrollTo({
+        left: Math.max(0, targetLeft),
+        behavior: behavior || 'smooth'
+      });
+
+      // Keep button/dot state in sync immediately.
+      setActive(normalizedIndex);
     }
 
     // Detect which card is nearest the center of the carousel as the user scrolls
@@ -1598,18 +1615,29 @@
       }, 80);
     }, { passive: true });
 
-    prevBtn.addEventListener('click', () => {
-      isUserInteracting = true;
-      scrollToIndex(currentIndex - 1);
-    });
-    nextBtn.addEventListener('click', () => {
-      isUserInteracting = true;
-      scrollToIndex(currentIndex + 1);
-    });
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        isUserInteracting = true;
+        stopAuto();
+        scrollToIndex(currentIndex - 1);
+        startAuto();
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        isUserInteracting = true;
+        stopAuto();
+        scrollToIndex(currentIndex + 1);
+        startAuto();
+      });
+    }
     dots.forEach((dot, i) => {
       dot.addEventListener('click', () => {
         isUserInteracting = true;
+        stopAuto();
         scrollToIndex(i);
+        startAuto();
       });
     });
 
@@ -1632,9 +1660,11 @@
       startAuto();
     }
 
-    // Initialize centered on first card
-    scrollToIndex(0, 'auto');
-    setActive(0);
+    // Initialize after layout is ready so the first centering calculation
+    // uses the final card and carousel dimensions.
+    requestAnimationFrame(() => {
+      scrollToIndex(0, 'auto');
+    });
   })();
 </script>
 
