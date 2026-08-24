@@ -152,7 +152,19 @@
     backdrop-filter: blur(6px);
   }
 
-  .brand { font-family: 'Fraunces', serif; font-size: 1.05rem; color: var(--cream-text); }
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+    text-decoration: none;
+  }
+
+  .brand img {
+    display: block;
+    width: auto;
+    height: 32px;
+    object-fit: contain;
+  }
 
   header nav a {
     text-decoration: none;
@@ -407,6 +419,7 @@
   }
 
   @media (max-width: 640px) {
+    .brand img { height: 22px; }
     .skills-grid { grid-template-columns: 1fr; }
     .wrap { padding: 0 20px 80px; }
   }
@@ -434,7 +447,9 @@
   <!-- End Google Tag Manager (noscript) -->
 
 <header>
-  <a href="index.html" class="brand mono" style="text-decoration: none;">Sujata Karan</a>
+  <a href="/" class="brand" aria-label="Sujata Karan — Home">
+    <img src="/sujata-karan-logo-exact.png" alt="Sujata Karan">
+  </a>
   <nav>
     <a href="index.html#work">Work</a>
     <a href="index.html#contact">Contact</a>
