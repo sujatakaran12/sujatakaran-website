@@ -166,15 +166,51 @@
     object-fit: contain;
   }
 
+  header nav {
+    display: flex;
+    align-items: center;
+    gap: 27px;
+  }
+
   header nav a {
+    position: relative;
+    padding: 10px 0;
     text-decoration: none;
-    color: var(--muted-navy-text);
-    font-size: 0.85rem;
-    margin-left: 24px;
+    color: rgba(244, 236, 217, 0.88);
+    font-size: 15px;
+    font-weight: 600;
+    margin-left: 0;
     transition: color 0.2s;
   }
 
-  header nav a:hover { color: var(--brass-bright); }
+  header nav a:not(.contact-link)::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 3px;
+    height: 1px;
+    background: var(--brass-bright);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s ease;
+  }
+
+  header nav a:hover,
+  header nav a.active { color: var(--cream-text); }
+  header nav a:hover::after,
+  header nav a.active::after { transform: scaleX(1); }
+
+  .nav-divider { width: 1px; height: 23px; background: rgba(244, 236, 217, 0.2); }
+
+  header nav .contact-link {
+    padding: 11px 18px;
+    border: 1px solid var(--brass-bright);
+    background: var(--brass-bright);
+    color: var(--ink-navy);
+  }
+
+  header nav .contact-link:hover { background: transparent; color: var(--cream-text); }
 
   header a.back { color: var(--brass-bright); }
 
@@ -420,6 +456,11 @@
 
   @media (max-width: 640px) {
     .brand img { height: 22px; }
+    header { padding: 16px 20px; }
+    header nav { gap: 13px; }
+    header nav a { font-size: 12px; }
+    header nav .contact-link { padding: 8px 10px; }
+    .nav-divider, .nav-optional { display: none; }
     .skills-grid { grid-template-columns: 1fr; }
     .wrap { padding: 0 20px 80px; }
   }
@@ -451,9 +492,13 @@
     <img src="/sujata-karan-logo-exact.png" alt="Sujata Karan">
   </a>
   <nav>
+    <a class="nav-optional" href="index.html#help">How I help</a>
     <a href="index.html#work">Work</a>
-    <a href="index.html#contact">Contact</a>
-    <a class="back" href="index.html">&larr; Home</a>
+    <a class="nav-optional" href="index.html#skills">Skills</a>
+    <a href="index.html#lab">Lab</a>
+    <span class="nav-divider" aria-hidden="true"></span>
+    <a class="active" href="resume.html">Resume ↗</a>
+    <a class="contact-link" href="index.html#contact">Contact</a>
   </nav>
 </header>
 
