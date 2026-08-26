@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google Consent Mode defaults: must be first -->
+  <script data-cookieconsent="ignore">
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag("consent", "default", {
+      ad_storage: "denied",
+      ad_user_data: "denied",
+      ad_personalization: "denied",
+      analytics_storage: "denied",
+      functionality_storage: "denied",
+      personalization_storage: "denied",
+      security_storage: "granted",
+      wait_for_update: 500
+    });
+  </script>
+
+  <!-- Cookiebot: must load before GTM, GA4 and Clarity -->
+  <script
+    id="Cookiebot"
+    src="https://consent.cookiebot.com/uc.js"
+    data-cbid="f625a753-740b-4983-b807-e4322e7d1092"
+    data-blockingmode="auto"
+    type="text/javascript">
+  </script>
+
+  <!-- Google Tag Manager -->
+  <script data-cookieconsent="ignore">
+    (function(w,d,s,l,i){
+      w[l]=w[l]||[];
+      w[l].push({
+        "gtm.start": new Date().getTime(),
+        event: "gtm.js"
+      });
+
+      var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),
+          dl=l!="dataLayer" ? "&l="+l : "";
+
+      j.async=true;
+      j.src="https://www.googletagmanager.com/gtm.js?id="+i+dl;
+      f.parentNode.insertBefore(j,f);
+    })(window,document,"script","dataLayer","GTM-NR23D9J8");
+  </script>
+  <!-- End Google Tag Manager -->
+
+  <!-- GA4: blocked until statistics consent -->
+  <script
+    type="text/plain"
+    data-cookieconsent="statistics"
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-XX556KRSCQ">
+  </script>
+
+  <script
+    type="text/plain"
+    data-cookieconsent="statistics">
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag("js", new Date());
+    gtag("config", "G-XX556KRSCQ");
+  </script>
+
+  <!-- Microsoft Clarity: blocked until statistics consent -->
+  <script
+    type="text/plain"
+    data-cookieconsent="statistics">
+    (function(c,l,a,r,i,t,y){
+      c[a]=c[a] || function(){
+        (c[a].q=c[a].q || []).push(arguments);
+      };
+
+      t=l.createElement(r);
+      t.async=1;
+      t.src="https://www.clarity.ms/tag/"+i;
+
+      y=l.getElementsByTagName(r)[0];
+      y.parentNode.insertBefore(t,y);
+    })(window,document,"clarity","script","xu6j8fqku3");
+  </script>
+
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Has an Attribution Problem. Marketing Has Seen This Movie Before. · Sujata Karan</title>
+<meta name="description" content="What marketing measurement can teach us about AI ROI, attribution, counterfactuals and the difference between reported ROI and real AI value.">
+<meta property="og:title" content="AI Has an Attribution Problem. Marketing Has Seen This Movie Before.">
+<meta property="og:description" content="What marketing measurement can teach us about AI ROI, attribution and defensible value measurement.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://sujatakaran.com/insights/ai-attribution-problem">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://sujatakaran.com/insights/ai-attribution-problem">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink-navy:#0f2438;--navy-deep:#0a1a29;--chart-cream:#ece5d3;--cream-panel:#f4efe2;--brass:#a8752f;--brass-bright:#c68f42;--teal-deep:#1c4a4d;--ink-text:#1b2430;--cream-text:#f1ead9;--muted-navy-text:#9db0c2;--muted-ink-text:#5a6472;--rule:rgba(168,117,47,.35)}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{background:var(--chart-cream);color:var(--ink-text);font-family:'Public Sans',sans-serif;line-height:1.72;overflow-x:hidden}a{color:inherit}.mono{font-family:'JetBrains Mono',monospace;letter-spacing:.06em}h1,h2,h3{font-family:'Fraunces',serif;font-weight:500;letter-spacing:-.015em}
+header{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 32px;display:flex;justify-content:space-between;align-items:center;background:rgba(15,36,56,.92);backdrop-filter:blur(6px)}.brand{display:inline-flex;align-items:center;text-decoration:none}.brand img{height:32px;width:auto;display:block}nav{display:flex;align-items:center;gap:25px}nav a{position:relative;padding:10px 0;text-decoration:none;color:rgba(244,236,217,.88);font-size:15px;font-weight:600}nav a:not(.contact-link)::after{content:"";position:absolute;left:0;right:0;bottom:3px;height:1px;background:var(--brass-bright);transform:scaleX(0);transform-origin:left;transition:.25s}nav a:hover,nav a.active{color:var(--cream-text)}nav a:hover::after,nav a.active::after{transform:scaleX(1)}.nav-divider{width:1px;height:23px;background:rgba(244,236,217,.2)}.contact-link{padding:11px 18px!important;border:1px solid var(--brass-bright);background:var(--brass-bright);color:var(--ink-navy)!important}
+.article-hero{padding:160px 32px 80px;color:var(--cream-text);background-color:var(--ink-navy);background-image:repeating-linear-gradient(0deg,rgba(241,234,217,.035) 0,rgba(241,234,217,.035) 1px,transparent 1px,transparent 64px),repeating-linear-gradient(90deg,rgba(241,234,217,.035) 0,rgba(241,234,217,.035) 1px,transparent 1px,transparent 64px)}.hero-inner{max-width:980px;margin:0 auto}.kicker{font-size:.74rem;text-transform:uppercase;color:var(--brass-bright);margin-bottom:22px}.article-hero h1{max-width:900px;font-size:clamp(2.65rem,6vw,5.4rem);line-height:1.01}.dek{max-width:760px;margin-top:26px;font-family:'Fraunces',serif;font-style:italic;font-size:clamp(1.15rem,2vw,1.45rem);color:var(--muted-navy-text);line-height:1.5}.byline{margin-top:34px;display:flex;gap:12px;flex-wrap:wrap;align-items:center;color:var(--muted-navy-text);font-size:.82rem}.byline strong{color:var(--cream-text);font-weight:600}.dot{color:var(--brass-bright)}
+.hero-diagram{max-width:980px;margin:0 auto;padding:0 32px;transform:translateY(38px)}.diagram-card{background:var(--cream-panel);border:1px solid var(--rule);border-top:2px solid var(--brass);padding:0;box-shadow:0 16px 42px rgba(10,26,41,.07)}.comparison{padding:38px 42px 34px}.compare-label-row,.compare-q-row{display:grid;grid-template-columns:1fr 1fr;column-gap:120px;max-width:760px;margin:0 auto}.compare-label{font-size:.68rem;text-transform:uppercase;color:var(--brass);margin-bottom:16px}.compare-label:last-child,.compare-q:last-child{text-align:left}.compare-headline-row{display:flex;align-items:center;justify-content:center;gap:64px;width:max-content;max-width:100%;margin:0 auto}.compare-main{font-family:'Fraunces',serif;font-size:clamp(1.45rem,2.5vw,2rem);color:var(--ink-navy);line-height:1.15;white-space:nowrap;flex:0 0 auto}.same-question{flex:0 0 auto;display:block;text-align:center;font-family:'JetBrains Mono',monospace;font-size:.67rem;line-height:1.55;letter-spacing:.08em;text-transform:uppercase;color:var(--brass);white-space:nowrap}.compare-q-row{margin-top:18px}.compare-q{color:var(--muted-ink-text);font-size:.9rem}.diagram-footer{background:rgba(28,74,77,.055);border-top:1px solid var(--rule);padding:18px 24px;text-align:center;font-weight:600;color:var(--teal-deep)}
+.article-shell{max-width:1180px;margin:0 auto;padding:105px 32px 90px;display:grid;grid-template-columns:minmax(0,760px) 220px;gap:90px;align-items:start}.article p{font-size:1.06rem;margin:0 0 24px}.article h2{font-size:clamp(1.8rem,3vw,2.45rem);line-height:1.18;color:var(--ink-navy);margin:62px 0 22px}.article strong{font-weight:700;color:var(--ink-navy)}.article .question{font-family:'Fraunces',serif;font-size:1.35rem;line-height:1.5;color:var(--teal-deep);border-left:3px solid var(--brass);padding:6px 0 6px 24px;margin:34px 0}.article .equation{font-family:'JetBrains Mono',monospace;background:rgba(15,36,56,.055);border:1px solid var(--rule);padding:18px 20px;margin:28px 0;font-size:.92rem;color:var(--ink-navy)}
+.callout{margin:48px 0;background:var(--ink-navy);color:var(--cream-text);padding:34px 36px}.callout .small{font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.07em;color:var(--brass-bright);font-size:.7rem}.callout .big{font-family:'Fraunces',serif;font-size:clamp(1.6rem,3vw,2.35rem);line-height:1.3;margin-top:12px}.callout .neq{color:var(--brass-bright);padding:0 8px}
+.roi-compare{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:34px 0}.roi-card{background:var(--cream-panel);border:1px solid var(--rule);padding:24px}.roi-card h3{font-size:1.35rem;color:var(--ink-navy);margin-bottom:14px}.roi{font-family:'Fraunces',serif;font-size:2rem;color:var(--teal-deep)}.evidence{font-size:.88rem;color:var(--muted-ink-text);margin-top:10px}.confidence{display:inline-block;margin-top:14px;font-family:'JetBrains Mono',monospace;font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;padding:7px 9px;border:1px solid var(--rule)}
+.sidebar{position:sticky;top:110px;border-left:1px solid var(--rule);padding-left:24px}.sidebar .label{font-size:.69rem;text-transform:uppercase;color:var(--brass);margin-bottom:16px}.sidebar a{display:block;text-decoration:none;color:var(--muted-ink-text);font-size:.84rem;line-height:1.45;margin:0 0 13px}.sidebar a:hover{color:var(--teal-deep)}
+.article-end{background:var(--ink-navy);color:var(--cream-text);padding:70px 32px}.end-inner{max-width:980px;margin:0 auto}.end-label{font-size:.72rem;text-transform:uppercase;color:var(--brass-bright);margin-bottom:14px}.article-end h2{font-size:clamp(2rem,4vw,3rem);max-width:760px;line-height:1.15}.article-end p{max-width:700px;color:var(--muted-navy-text);margin-top:18px}.end-link{display:inline-block;margin-top:28px;color:var(--cream-text);text-decoration:none;border-bottom:1px solid var(--brass-bright);padding-bottom:4px;font-weight:600}
+footer{background:var(--navy-deep);color:var(--muted-navy-text);padding:28px 32px;font-size:.8rem}.footer-inner{max-width:1080px;margin:0 auto;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+@media(max-width:900px){nav .nav-optional,.nav-divider{display:none}.article-shell{grid-template-columns:1fr;gap:0}.sidebar{display:none}.comparison{padding:0}.compare-label-row,.compare-q-row{display:block;max-width:none;margin:0}.compare-label-row .compare-label{padding:30px 34px 0;margin-bottom:16px}.compare-label-row .compare-label:nth-child(2){display:none}.compare-headline-row{display:block;width:auto;max-width:none;margin:0}.compare-main{padding:0 34px;white-space:normal}.compare-headline-row .ai-main{padding-top:30px}.same-question{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:12px 20px;margin:30px 0 0}.compare-q-row{margin-top:0}.compare-q{padding:18px 34px 30px}.compare-q-row .compare-q:nth-child(2){padding-top:18px}.roi-compare{grid-template-columns:1fr}}@media(max-width:620px){header{padding:16px 18px}.brand img{height:27px}nav{gap:14px}nav a{font-size:13px}.contact-link{padding:9px 12px!important}.article-hero{padding:125px 20px 66px}.hero-diagram{padding:0 20px}.diagram-card{padding:0}.compare-label{padding-left:22px;padding-right:22px}.compare-main{padding-left:22px;padding-right:22px}.compare-q{padding-left:22px;padding-right:22px}.article-shell{padding:90px 20px 70px}.article p{font-size:1rem}.callout{padding:28px 24px}.article-end{padding:56px 20px}}
+</style>
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe
+      src="https://www.googletagmanager.com/ns.html?id=GTM-NR23D9J8"
+      height="0"
+      width="0"
+      style="display:none;visibility:hidden">
+    </iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+<header>
+  <a href="/" class="brand" aria-label="Sujata Karan - Home"><img src="/sujata-karan-logo-exact.png" alt="Sujata Karan"></a>
+  <nav>
+    <a class="nav-optional" href="/#work">Work</a>
+    <a class="active" href="/insights/">Insights</a>
+    <a class="nav-optional" href="/#lab">Lab</a>
+    <span class="nav-divider" aria-hidden="true"></span>
+    <a href="/resume.html">Resume ↗</a>
+    <a class="contact-link" href="/#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="article-hero">
+  <div class="hero-inner">
+    <div class="kicker mono">AI VALUE &amp; MEASUREMENT · INSIGHT 01</div>
+    <h1>AI Has an Attribution Problem. Marketing Has Seen This Movie Before.</h1>
+    <p class="dek">What years of marketing measurement can teach us about AI ROI, causality and the difference between a result that happened after AI and one that happened because of it.</p>
+    <div class="byline"><strong>Sujata Karan</strong><span class="dot">·</span><span>26 August 2026</span><span class="dot">·</span><span>8 min read</span></div>
+  </div>
+</section>
+
+<div class="hero-diagram" aria-label="Marketing and AI attribution comparison">
+  <div class="diagram-card">
+    <!-- comparison layout v5: headline uses content-width flex with equal gaps -->
+    <div class="comparison">
+      <div class="compare-label-row">
+        <div class="compare-label mono">Marketing</div>
+        <div class="compare-label mono">AI</div>
+      </div>
+      <div class="compare-headline-row">
+        <div class="compare-main marketing-main">Ad → Conversion</div>
+        <div class="same-question">Same<br>question</div>
+        <div class="compare-main ai-main">AI → Productivity ↑</div>
+      </div>
+      <div class="compare-q-row">
+        <div class="compare-q">Did the ad cause it?</div>
+        <div class="compare-q">Did AI cause it?</div>
+      </div>
+    </div>
+    <div class="diagram-footer">Same attribution problem. New technology.</div>
+  </div>
+</div>
+
+<main class="article-shell">
+<article class="article">
+<p>I've spent a good part of my career working with marketing measurement, and there's one frustrating question that never really goes away:</p>
+<p class="question"><strong>Did marketing actually cause the result?</strong></p>
+<p>I've worked with attribution, marketing ROI and marketing mix modelling. The methods have become more sophisticated, but the fundamental problem remains.</p>
+<p>A customer sees an ad and later buys.</p>
+<p>Did the ad cause the purchase?</p>
+<p>Maybe.</p>
+<p>Or maybe they were already planning to buy. Maybe they saw three other campaigns. Maybe a salesperson spoke to them. Maybe there was a promotion. Maybe demand simply went up.</p>
+<p>Recently, while looking at how companies are measuring ROI from AI, I realised we're dealing with a surprisingly similar problem.</p>
+<p>An AI tool is introduced. Productivity improves. And we give AI the credit.</p>
+<p class="question"><strong>But should we?</strong></p>
+
+<h2 id="last-click">This feels a lot like last-click attribution</h2>
+<p>For a long time, marketing had a wonderfully convenient way of assigning credit.</p>
+<p>A customer clicked a search ad and then converted? Search gets the conversion.</p>
+<p>Simple.</p>
+<p>The problem, of course, was that the customer might have encountered the brand through several other channels before that final click.</p>
+<p>Last-click told us what happened immediately before the conversion. It didn't necessarily tell us what <em>caused</em> it.</p>
+<p>I think we're at risk of doing something similar with AI.</p>
+<p>Imagine a company introduces an AI sales assistant in January. Six months later, sales productivity is up 15%.</p>
+<div class="equation">AI implementation → +15% productivity</div>
+<p>It's very tempting to put that on a slide.</p>
+<p>But what else happened during those six months?</p>
+<p>Maybe the sales process changed. Maybe incentives changed. Maybe demand improved. Maybe territories were reorganised. Maybe another technology was introduced.</p>
+<div class="callout"><div class="small">Measurement distinction</div><div class="big">“This happened after AI” <span class="neq">≠</span> “This happened because of AI.”</div></div>
+
+<h2 id="counterfactual">What would have happened without AI?</h2>
+<p>This is where another familiar measurement concept becomes useful: the counterfactual.</p>
+<p>Essentially:</p>
+<p class="question"><strong>What would have happened if we hadn't introduced the AI initiative?</strong></p>
+<p>We can't observe that alternate reality directly, which is what makes measurement interesting, and occasionally frustrating.</p>
+<p>In marketing, we've tried to get closer to the answer using experiments, control groups, incrementality testing, attribution models and marketing mix modelling.</p>
+<p>Different methods, different limitations. But they're all trying, in one way or another, to separate what happened from what happened <strong>because of the intervention</strong>.</p>
+<p>I think AI ROI needs the same thinking.</p>
+<p>Suppose an AI customer-service tool is introduced and average handling time falls from 12 minutes to 9.</p>
+<p>At first glance, AI produced a 25% improvement.</p>
+<p>But imagine handling time had already been declining and, without AI, would probably have reached 10 minutes anyway.</p>
+<p class="question"><strong>Should AI receive credit for three minutes or one?</strong></p>
+<p>That difference will eventually flow straight into the ROI calculation.</p>
+
+<h2 id="hours">Hours saved aren't automatically euros saved</h2>
+<p>There's another AI ROI calculation I've been thinking about.</p>
+<p>Suppose employees report that an AI tool saves 10,000 hours annually. Their average employment cost is €50/hour.</p>
+<div class="equation">10,000 hours × €50 = €500,000 value</div>
+<p>It looks reasonable.</p>
+<p>But where exactly is that €500,000?</p>
+<p>If the company avoided additional hiring because of the capacity created, there may be measurable cost avoidance. If employees used those hours to generate additional output or revenue, there's potentially measurable economic value. If overtime decreased, there's a direct saving.</p>
+<p>But if people simply completed their work faster, the organisation has certainly created capacity, and that may be valuable, but it hasn't necessarily created €500,000 of financial return.</p>
+<p>Marketing has a similar chain.</p>
+<div class="equation">Leads → Pipeline → Revenue → Incremental value</div>
+<p>Leads aren't pipeline. Pipeline isn't revenue. Revenue influenced isn't necessarily revenue caused.</p>
+<p>There are steps between activity and financial value. AI needs those steps too.</p>
+
+<h2 id="evidence">I'm not suggesting we need an experiment for everything</h2>
+<p>That would be unrealistic.</p>
+<p>Sometimes we'll have a control group or a good before-and-after comparison. Sometimes we'll have strong system data. And sometimes the best evidence available will genuinely be employees telling us how much time they're saving.</p>
+<p>That's still useful information.</p>
+<p>But I don't think we should treat all those estimates as equally reliable.</p>
+<div class="roi-compare">
+  <div class="roi-card"><h3>Initiative A</h3><div class="roi">180% ROI</div><div class="evidence">Operational data + controlled comparison</div><span class="confidence">Higher confidence</span></div>
+  <div class="roi-card"><h3>Initiative B</h3><div class="roi">320% ROI</div><div class="evidence">Employee-reported time savings</div><span class="confidence">Lower confidence</span></div>
+</div>
+<p>If you only look at ROI, Initiative B wins.</p>
+<p>But if you had another €1 million to invest, would you automatically put it there?</p>
+<p>I wouldn't. I'd want to understand the evidence behind the number.</p>
+<p>Perhaps Initiative B is genuinely the better investment. Or perhaps its first priority should be better validation.</p>
+<p>That's why I think AI ROI needs something we don't normally put next to an ROI percentage: <strong>a measure of confidence.</strong></p>
+<p>Not to make the calculation more complicated for the sake of it. Just to acknowledge that 320% based on an estimate isn't quite the same thing as 320% supported by observed outcomes.</p>
+
+<h2 id="portfolio">This gets much more important at portfolio level</h2>
+<p>With three AI pilots, none of this is particularly difficult to keep track of.</p>
+<p>With 100 AI initiatives, it becomes a different problem.</p>
+<p>Imagine seeing this on an executive dashboard:</p>
+<div class="equation">AI investment: €8.2M<br>Estimated value: €19.4M<br>Portfolio ROI: 137%</div>
+<p>My measurement brain immediately starts asking questions.</p>
+<p>How much of that €19.4M is observed versus forecast? What baselines were used? How much of the improvement are we giving AI credit for? How much has actually translated into economic value? How confident are we in those estimates?</p>
+<p>Without that context, a very precise-looking portfolio ROI can be built from some surprisingly uncertain numbers.</p>
+
+<h2 id="movie">We've seen this movie before</h2>
+<p>Marketing spent years learning that activity, outcomes and incremental value aren't the same thing.</p>
+<p>We went from impressions and clicks to attribution, experimentation, incrementality and modelling because businesses eventually wanted a better answer to:</p>
+<p class="question"><strong>What did marketing actually contribute?</strong></p>
+<p>Now AI is heading toward the same question.</p>
+<p>We're already getting quite good at measuring adoption. We can count licences, active users, prompts and use cases. We're getting better at estimating productivity improvements.</p>
+<p>But the next question is harder:</p>
+<p class="question"><strong>What value did AI actually create that wouldn't otherwise have existed?</strong></p>
+<p>I don't think there's going to be one perfect methodology that answers that question for every AI use case. Marketing never found one either.</p>
+<p>But we can at least avoid repeating some of the mistakes we've already made.</p>
+<p>Because <em>“this happened after we introduced AI”</em> and <em>“this happened because we introduced AI”</em> are two very different statements.</p>
+<p>And the difference between them might eventually be the difference between <strong>reported AI ROI and real AI value.</strong></p>
+</article>
+<aside class="sidebar">
+  <div class="label mono">IN THIS ARTICLE</div>
+  <a href="#last-click">The last-click parallel</a>
+  <a href="#counterfactual">The counterfactual</a>
+  <a href="#hours">Hours vs euros</a>
+  <a href="#evidence">Evidence &amp; confidence</a>
+  <a href="#portfolio">The portfolio problem</a>
+  <a href="#movie">What marketing learned</a>
+</aside>
+</main>
+
+<section class="article-end">
+  <div class="end-inner">
+    <div class="end-label mono">AI VALUE &amp; MEASUREMENT</div>
+    <h2>This is the first article in an ongoing series on measuring the value behind AI initiatives.</h2>
+    <p>Next: why productivity gains, economic value and financial return need to be separated before an AI business case becomes an ROI claim.</p>
+    <a class="end-link" href="/insights/">View all insights →</a>
+  </div>
+</section>
+<footer><div class="footer-inner"><span>© 2026 Sujata Karan</span><span class="mono">ANALYTICS · AI · MARKETING MEASUREMENT</span></div></footer>
+</body>
+</html>
