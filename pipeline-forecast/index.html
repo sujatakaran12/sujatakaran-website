@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google Consent Mode defaults: must be first. -->
+  <script data-cookieconsent="ignore">
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag("consent", "default", {
+      ad_storage: "denied",
+      ad_user_data: "denied",
+      ad_personalization: "denied",
+      analytics_storage: "denied",
+      functionality_storage: "denied",
+      personalization_storage: "denied",
+      security_storage: "granted",
+      wait_for_update: 500
+    });
+  </script>
+
+  <!-- Cookiebot: must load before GTM, GA4 and Clarity -->
+  <script
+    id="Cookiebot"
+    src="https://consent.cookiebot.com/uc.js"
+    data-cbid="f625a753-740b-4983-b807-e4322e7d1092"
+    data-blockingmode="auto"
+    type="text/javascript">
+  </script>
+
+  <!-- Google Tag Manager -->
+  <script data-cookieconsent="ignore">
+    (function(w,d,s,l,i){
+      w[l]=w[l]||[];
+      w[l].push({
+        "gtm.start": new Date().getTime(),
+        event: "gtm.js"
+      });
+
+      var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),
+          dl=l!="dataLayer" ? "&l="+l : "";
+
+      j.async=true;
+      j.src="https://www.googletagmanager.com/gtm.js?id="+i+dl;
+      f.parentNode.insertBefore(j,f);
+    })(window,document,"script","dataLayer","GTM-NR23D9J8");
+  </script>
+  <!-- End Google Tag Manager -->
+
+  <!-- GA4: blocked until statistics consent -->
+  <script
+    type="text/plain"
+    data-cookieconsent="statistics"
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-XX556KRSCQ">
+  </script>
+
+  <script
+    type="text/plain"
+    data-cookieconsent="statistics">
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag("js", new Date());
+    gtag("config", "G-XX556KRSCQ");
+  </script>
+
+  <!-- Microsoft Clarity: blocked until statistics consent -->
+  <script
+    type="text/plain"
+    data-cookieconsent="statistics">
+    (function(c,l,a,r,i,t,y){
+      c[a]=c[a] || function(){
+        (c[a].q=c[a].q || []).push(arguments);
+      };
+
+      t=l.createElement(r);
+      t.async=1;
+      t.src="https://www.clarity.ms/tag/"+i;
+
+      y=l.getElementsByTagName(r)[0];
+      y.parentNode.insertBefore(t,y);
+    })(window,document,"clarity","script","xu6j8fqku3");
+  </script>
+
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pipeline Health &amp; Forecast Accuracy · Sujata Karan</title>
+<meta name="description" content="A sales analytics case study: rebuilding weekly pipeline snapshots from CRM history, measuring coverage and slippage, and backtesting three forecast methods.">
+<meta property="og:title" content="Pipeline Health &amp; Forecast Accuracy">
+<meta property="og:description" content="Are we going to hit the number this quarter, and can we trust what the reps are telling us? A SQL, Python and Metabase case study.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://sujatakaran.com/pipeline-forecast/">
+<meta property="og:image" content="https://sujatakaran.com/pipeline-forecast/dashboard.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://sujatakaran.com/pipeline-forecast/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink-navy:#0f2438;--navy-deep:#0a1a29;--chart-cream:#ece5d3;--cream-panel:#f4efe2;--brass:#a8752f;--brass-bright:#c68f42;--teal-deep:#1c4a4d;--ink-text:#1b2430;--cream-text:#f1ead9;--muted-navy-text:#9db0c2;--muted-ink-text:#5a6472;--rule:rgba(168,117,47,.35)}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{background:var(--chart-cream);color:var(--ink-text);font-family:'Public Sans',sans-serif;line-height:1.72;overflow-x:hidden}a{color:inherit}.mono{font-family:'JetBrains Mono',monospace;letter-spacing:.06em}h1,h2,h3{font-family:'Fraunces',serif;font-weight:500;letter-spacing:-.015em}
+header{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 32px;display:flex;justify-content:space-between;align-items:center;background:rgba(15,36,56,.92);backdrop-filter:blur(6px)}.brand{display:inline-flex;align-items:center;text-decoration:none}.brand img{height:32px;width:auto;display:block}nav{display:flex;align-items:center;gap:25px}nav a{position:relative;padding:10px 0;text-decoration:none;color:rgba(244,236,217,.88);font-size:15px;font-weight:600}nav a:not(.contact-link)::after{content:"";position:absolute;left:0;right:0;bottom:3px;height:1px;background:var(--brass-bright);transform:scaleX(0);transform-origin:left;transition:.25s}nav a:hover,nav a.active{color:var(--cream-text)}nav a:hover::after,nav a.active::after{transform:scaleX(1)}.nav-divider{width:1px;height:23px;background:rgba(244,236,217,.2)}.contact-link{padding:11px 18px!important;border:1px solid var(--brass-bright);background:var(--brass-bright);color:var(--ink-navy)!important}
+.article-hero{padding:160px 32px 110px;color:var(--cream-text);background-color:var(--ink-navy);background-image:repeating-linear-gradient(0deg,rgba(241,234,217,.035) 0,rgba(241,234,217,.035) 1px,transparent 1px,transparent 64px),repeating-linear-gradient(90deg,rgba(241,234,217,.035) 0,rgba(241,234,217,.035) 1px,transparent 1px,transparent 64px)}.hero-inner{max-width:1080px;margin:0 auto}.kicker{font-size:.74rem;text-transform:uppercase;color:var(--brass-bright);margin-bottom:22px}.article-hero h1{max-width:900px;font-size:clamp(2.5rem,5.6vw,4.9rem);line-height:1.03}.dek{max-width:780px;margin-top:26px;font-family:'Fraunces',serif;font-style:italic;font-size:clamp(1.15rem,2vw,1.45rem);color:var(--muted-navy-text);line-height:1.5}.byline{margin-top:34px;display:flex;gap:12px;flex-wrap:wrap;align-items:center;color:var(--muted-navy-text);font-size:.82rem}.byline strong{color:var(--cream-text);font-weight:600}.dot{color:var(--brass-bright)}
+.hero-links{margin-top:30px;display:flex;gap:14px;flex-wrap:wrap}.btn{display:inline-block;padding:12px 20px;font-weight:600;font-size:.92rem;text-decoration:none;border:1px solid var(--brass-bright)}.btn.primary{background:var(--brass-bright);color:var(--ink-navy)}.btn.ghost{color:var(--cream-text)}.btn:hover{filter:brightness(1.08)}
+.stats{max-width:1080px;margin:0 auto;padding:0 32px;transform:translateY(-54px);display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.stat{background:var(--cream-panel);border:1px solid var(--rule);border-top:2px solid var(--brass);padding:22px 22px 20px;box-shadow:0 16px 42px rgba(10,26,41,.07)}.stat .num{font-family:'Fraunces',serif;font-size:2.2rem;line-height:1.05;color:var(--teal-deep)}.stat .lbl{margin-top:8px;font-size:.86rem;color:var(--muted-ink-text);line-height:1.45}
+.article-shell{max-width:1180px;margin:0 auto;padding:10px 32px 90px;display:grid;grid-template-columns:minmax(0,760px) 220px;gap:90px;align-items:start}.article p{font-size:1.06rem;margin:0 0 22px}.article h2{font-size:clamp(1.8rem,3vw,2.45rem);line-height:1.18;color:var(--ink-navy);margin:58px 0 20px}.article h2:first-child{margin-top:0}.article h2{scroll-margin-top:110px}.article h3{font-size:1.3rem;color:var(--ink-navy);margin:30px 0 10px}.article strong{font-weight:700;color:var(--ink-navy)}.article ul,.article ol{margin:0 0 24px 22px}.article li{font-size:1.04rem;margin-bottom:10px}
+.article .question{font-family:'Fraunces',serif;font-size:1.35rem;line-height:1.5;color:var(--teal-deep);border-left:3px solid var(--brass);padding:6px 0 6px 24px;margin:30px 0}
+figure{margin:30px 0 34px}figure img{width:100%;display:block;border:1px solid var(--rule);background:#fff;box-shadow:0 12px 32px rgba(10,26,41,.08)}figcaption{margin-top:10px;font-size:.84rem;color:var(--muted-ink-text)}
+.steps{counter-reset:s;list-style:none;margin:10px 0 28px!important}.steps li{counter-increment:s;position:relative;padding:16px 18px 16px 64px;background:var(--cream-panel);border:1px solid var(--rule);margin-bottom:10px!important}.steps li::before{content:counter(s,decimal-leading-zero);position:absolute;left:18px;top:16px;font-family:'JetBrains Mono',monospace;font-size:.85rem;color:var(--brass)}
+table{width:100%;border-collapse:collapse;margin:14px 0 30px;font-size:.95rem;background:var(--cream-panel);border:1px solid var(--rule)}th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--rule);vertical-align:top}th{font-family:'JetBrains Mono',monospace;font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--brass);font-weight:500}td.n{font-family:'Fraunces',serif;font-size:1.1rem;color:var(--teal-deep);white-space:nowrap}tr.best td{background:rgba(28,74,77,.07)}
+.callout{margin:44px 0;background:var(--ink-navy);color:var(--cream-text);padding:32px 36px}.callout .small{font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.07em;color:var(--brass-bright);font-size:.7rem}.callout .big{font-family:'Fraunces',serif;font-size:clamp(1.4rem,2.6vw,2rem);line-height:1.35;margin-top:12px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 20px}.tag{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.05em;padding:6px 10px;border:1px solid var(--rule);color:var(--teal-deep);background:var(--cream-panel)}
+.sidebar{position:sticky;top:110px;border-left:1px solid var(--rule);padding-left:24px}.sidebar .label{font-size:.69rem;text-transform:uppercase;color:var(--brass);margin-bottom:16px}.sidebar a{display:block;text-decoration:none;color:var(--muted-ink-text);font-size:.84rem;line-height:1.45;margin:0 0 13px}.sidebar a:hover{color:var(--teal-deep)}
+.article-end{background:var(--ink-navy);color:var(--cream-text);padding:70px 32px}.end-inner{max-width:980px;margin:0 auto}.end-label{font-size:.72rem;text-transform:uppercase;color:var(--brass-bright);margin-bottom:14px}.article-end h2{font-size:clamp(2rem,4vw,3rem);max-width:760px;line-height:1.15}.article-end p{max-width:700px;color:var(--muted-navy-text);margin-top:18px}.end-link{display:inline-block;margin:28px 28px 0 0;color:var(--cream-text);text-decoration:none;border-bottom:1px solid var(--brass-bright);padding-bottom:4px;font-weight:600}
+footer{background:var(--navy-deep);color:var(--muted-navy-text);padding:28px 32px;font-size:.8rem}.footer-inner{max-width:1080px;margin:0 auto;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+@media(max-width:900px){nav .nav-optional,.nav-divider{display:none}.article-shell{grid-template-columns:1fr;gap:0}.sidebar{display:none}.stats{grid-template-columns:1fr 1fr}}
+@media(max-width:620px){header{padding:16px 18px}.brand img{height:27px}nav{gap:14px}nav a{font-size:13px}.contact-link{padding:9px 12px!important}.article-hero{padding:125px 20px 96px}.stats{padding:0 20px;gap:10px}.stat{padding:16px}.stat .num{font-size:1.7rem}.article-shell{padding:0 20px 70px}.article p{font-size:1rem}.callout{padding:26px 22px}.article-end{padding:56px 20px}table{font-size:.86rem}th,td{padding:10px}.table-wrap{overflow-x:auto}}
+</style>
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe
+      src="https://www.googletagmanager.com/ns.html?id=GTM-NR23D9J8"
+      height="0"
+      width="0"
+      style="display:none;visibility:hidden">
+    </iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+<header>
+  <a href="/" class="brand" aria-label="Sujata Karan - Home"><img src="/sujata-karan-logo-exact.png" alt="Sujata Karan"></a>
+  <nav>
+    <a class="nav-optional" href="/#work">Work</a>
+    <a class="nav-optional" href="/insights/">Insights</a>
+    <a class="active" href="/#lab">Lab</a>
+    <span class="nav-divider" aria-hidden="true"></span>
+    <a href="/resume.html">Resume ↗</a>
+    <a class="contact-link" href="/#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="article-hero">
+  <div class="hero-inner">
+    <div class="kicker mono">LAB · SALES ANALYTICS CASE STUDY</div>
+    <h1>Pipeline Health &amp; Forecast Accuracy</h1>
+    <p class="dek">Are we going to hit the number this quarter, and can we trust what the reps are telling us? A sales analytics build in SQL, Python and Metabase.</p>
+    <div class="byline"><strong>Sujata Karan</strong><span class="dot">·</span><span>September 2026</span><span class="dot">·</span><span>6 min read</span></div>
+    <div class="hero-links">
+      <a class="btn primary" href="https://github.com/sujatakaran12/pipeline-health-forecast" target="_blank" rel="noopener">View code on GitHub ↗</a>
+      <a class="btn ghost" href="#dashboard">See the dashboard</a>
+    </div>
+  </div>
+</section>
+
+<div class="stats" aria-label="Headline results">
+  <div class="stat"><div class="num">5.4x → 2.3x</div><div class="lbl">Pipeline coverage at quarter start, as quota doubled</div></div>
+  <div class="stat"><div class="num">7%</div><div class="lbl">Win rate for deals whose close date was pushed three or more times</div></div>
+  <div class="stat"><div class="num">&lt; 10%</div><div class="lbl">Forecast error of a simple model, in every week of the quarter</div></div>
+  <div class="stat"><div class="num">20–24%</div><div class="lbl">How far rep forecasts ran high in the last month of the quarter</div></div>
+</div>
+
+<main class="article-shell">
+<article class="article">
+
+<h2 id="problem">The problem</h2>
+<p>Every week a sales leader asks the same two questions: will we hit the number, and how much of what the team is committing can we believe?</p>
+<p>The answer usually sits in a CRM that only shows today. Salesforce can tell you what the pipeline looks like right now. It cannot easily tell you what it looked like in week 6, which is exactly what you need to judge whether a week 6 forecast was any good.</p>
+<p>I wanted to build the analysis a sales analytics function would run on this: where pipeline really stands, where deals stall, and which forecast method deserves trust.</p>
+
+<h2 id="data">The data</h2>
+<p>The data is synthetic, modelled on a SaaS company that sells two ways: a self-serve product that users adopt on their own, and an enterprise sales team that closes the larger accounts growing out of it. It covers January 2024 to September 2026.</p>
+<ul>
+  <li><strong>4,200 opportunities</strong> with full Salesforce-style field history of stage, amount, close date and forecast category</li>
+  <li><strong>36 sales reps</strong> with ramped quarterly quotas and weekly forecast submissions</li>
+  <li><strong>9,140 accounts</strong>, 26,000 leads and monthly product usage for 24,000 workspaces</li>
+</ul>
+<p>Real CRM data is messy, so I built the mess in on purpose: a Salesforce migration that cut off older history, duplicate account records, mixed currencies, missing deal amounts, deals past their close date and open deals still owned by reps who had left.</p>
+
+<h2 id="approach">The approach</h2>
+<ol class="steps">
+  <li><strong>Load and clean.</strong> Raw tables into PostgreSQL, then a staging layer that merges 140 duplicate accounts, standardises labels and converts everything to EUR. The SQL follows the raw, staging and marts layering used in dbt.</li>
+  <li><strong>Rebuild the past.</strong> A weekly snapshot of every deal as it stood each Monday, rebuilt from field history: 88 weeks and nearly 200,000 rows. This is the foundation for everything else.</li>
+  <li><strong>Measure pipeline health.</strong> Coverage against quota, stage conversion, time in stage, slippage and win rate by number of close-date pushes.</li>
+  <li><strong>Backtest the forecast.</strong> For every past week, predict the quarter three ways and compare with what actually closed.</li>
+  <li><strong>Make it usable.</strong> A Metabase dashboard and a one-page memo written for a VP of Sales.</li>
+</ol>
+
+<h2 id="dashboard">The dashboard</h2>
+<figure>
+  <img src="dashboard.png" alt="Pipeline Health and Forecast dashboard in Metabase: quarter progress gauge, forecast error by week, coverage at quarter start, quota attainment, days in stage and win rate by close-date pushes">
+  <figcaption>Built in Metabase on the PostgreSQL models. Top: this quarter's progress and forecast accuracy. Below: why the quarters are being missed.</figcaption>
+</figure>
+
+<h2 id="findings">What the data showed</h2>
+
+<h3>Not enough pipeline going in</h3>
+<p>Quota more than doubled, from €3.3M to €8.2M a quarter, while open pipeline stayed at €14–19M. Coverage at the start of the quarter fell from 5.4x to 2.3x. Only the quarter that started above 5x hit target; every quarter since finished between 79% and 97%.</p>
+<p class="question">The problem was not closing. It was what the team walked into each quarter with.</p>
+
+<h3>Deals that will be lost get stuck</h3>
+<p>Won deals move through each stage in about a week. Lost deals stay two to nine times longer, up to 75 days in Negotiation against 8 for won deals. Time in the current stage turned out to be the strongest single warning sign.</p>
+
+<h3>Close-date pushes are a signal, not noise</h3>
+<div class="table-wrap"><table>
+  <thead><tr><th>Close-date pushes</th><th>Win rate</th><th>Reading</th></tr></thead>
+  <tbody>
+    <tr><td>None</td><td class="n">31%</td><td>Baseline</td></tr>
+    <tr><td>One</td><td class="n">44%</td><td>Normal: dates move when deals are real</td></tr>
+    <tr><td>Two</td><td class="n">25%</td><td>Worth a conversation</td></tr>
+    <tr><td>Three or more</td><td class="n">7%</td><td>Polite, but not buying</td></tr>
+  </tbody>
+</table></div>
+
+<h2 id="forecast">Which forecast to trust</h2>
+<p>I compared three ways of predicting a quarter's bookings, each starting from what was already won and adding a view on the rest.</p>
+<div class="table-wrap"><table>
+  <thead><tr><th>Method</th><th>How it works</th><th>Average error</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Rep calls</strong></td><td>The sum of each rep's weekly commit</td><td class="n">10–28%</td></tr>
+    <tr><td><strong>Stage-weighted</strong></td><td>Fixed probability per stage, the usual CRM default (10% to 80%)</td><td class="n">up to 64%</td></tr>
+    <tr class="best"><td><strong>Model</strong></td><td>Logistic regression on stage, time in stage, pushes, deal age and timing, plus the deals typically created mid-quarter</td><td class="n">1–9%</td></tr>
+  </tbody>
+</table></div>
+<figure>
+  <img src="forecast-error.png" alt="Line chart of average forecast error by week of quarter for rep calls, stage-weighted pipeline and the model">
+  <figcaption>Average forecast error by week of quarter, across four completed quarters. Lower is better.</figcaption>
+</figure>
+<p>The model was trained walk-forward: each quarter was predicted only from the quarters before it, so it never saw the answer. I kept it to a logistic regression on purpose. In a pipeline review, "stuck 40 days in Proposal and pushed twice" is something a rep can act on.</p>
+<p>Rep calls were not random either. Some reps consistently called about half of what they closed; others called two to four times as much. When a bias is that stable, leadership can adjust for it.</p>
+
+<div class="callout">
+  <div class="small">Current quarter, week 12 of 13</div>
+  <div class="big">€7.1M closed against €8.2M quota. The team calls €8.5M. The model says about €8.1M: plan for on target, possibly just short.</div>
+</div>
+
+<h2 id="recommendations">What I would recommend</h2>
+<ol>
+  <li><strong>Set a 3x coverage goal for week 1 of every quarter</strong>, tracked weekly from mid-way through the quarter before. The fix sits upstream, especially in product-led accounts, which win most often.</li>
+  <li><strong>Add two flags to the weekly pipeline review:</strong> deals more than three weeks in one stage, and deals pushed twice or more. Either give them a clear next step or take them out of this quarter.</li>
+  <li><strong>Show the model forecast next to rep calls</strong>, and review each rep's historical accuracy with them. Not to replace their judgement, but to show where it usually runs high or low.</li>
+</ol>
+
+<h2 id="limits">Limitations</h2>
+<p>The data is synthetic, so the patterns are cleaner than a real CRM would give, and the forecast was tested on four quarters. On real data I would expect the model's lead over rep calls to be smaller, and I would validate it over at least two more quarters before anyone relied on it. With a live stack, the same models would sit in dbt on the warehouse, and product usage would feed both the forecast and lead scoring.</p>
+
+<div class="tags">
+  <span class="tag">PostgreSQL</span><span class="tag">SQL</span><span class="tag">dbt-style layers</span><span class="tag">Python</span><span class="tag">scikit-learn</span><span class="tag">Metabase</span><span class="tag">Docker</span>
+</div>
+
+</article>
+<aside class="sidebar">
+  <div class="label mono">IN THIS CASE STUDY</div>
+  <a href="#problem">The problem</a>
+  <a href="#data">The data</a>
+  <a href="#approach">The approach</a>
+  <a href="#dashboard">The dashboard</a>
+  <a href="#findings">What the data showed</a>
+  <a href="#forecast">Which forecast to trust</a>
+  <a href="#recommendations">Recommendations</a>
+  <a href="#limits">Limitations</a>
+</aside>
+</main>
+
+<section class="article-end">
+  <div class="end-inner">
+    <div class="end-label mono">SALES ANALYTICS · LAB</div>
+    <h2>The code, data model, memo and dashboard are all open.</h2>
+    <p>Next in this series: which self-serve users should sales talk to, using product usage to score accounts against the capacity of the sales team.</p>
+    <a class="end-link" href="https://github.com/sujatakaran12/pipeline-health-forecast" target="_blank" rel="noopener">View the repository ↗</a>
+    <a class="end-link" href="https://github.com/sujatakaran12/pipeline-health-forecast/blob/main/docs/memo.md" target="_blank" rel="noopener">Read the one-page memo ↗</a>
+    <a class="end-link" href="/#lab">Back to the Lab</a>
+  </div>
+</section>
+<footer><div class="footer-inner"><span>© 2026 Sujata Karan</span><span class="mono">ANALYTICS · AI · MARKETING MEASUREMENT</span></div></footer>
+<script src="../mobile-nav.js"></script>
+</body>
+</html>
